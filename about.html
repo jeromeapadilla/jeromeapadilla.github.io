@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Jerome's Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-y: auto; /* Add this line for vertical scrolling */
+        }
+
+        .container.section {
+            flex: 1;
+            padding-bottom: 50px; /* Adjusted padding to prevent footer overlap */
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 15px 0;
+            border-bottom: 2px solid #ffffff; /* White border at the bottom */
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: #ffffff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #d8d8d8; /* Light gray on hover */
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        /* New styles for the footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin-bottom: 5px; /* Adjusted margin for better spacing */
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        footer a:hover {
+            color: #d8d8d8; /* Light gray on hover */
+        }
+
+        /* New styles for the bio section */
+        .bio-container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .bio-container img {
+            border-radius: 50%;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links-section {
+            margin-top: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            position: relative;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .name-section {
+            margin-top: 20px;
+        }
+
+        .name-section h2,
+        .name-section p {
+            margin-bottom: 10px;
+        }
+
+        .body-info {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand mx-3">Jerome's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <div class="container section bio-container">
+        <img src="your_profile_picture.jpg" alt="Your Name">
+        <div class="name-section">
+            <h2>Jerome Padilla</h2>
+            <p>Web Developer | Designer</p>
+        </div>
+        <div class="social-links-section">
+            <div class="social-links">
+                <a href="https://github.com/jeromeapadilla" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/jeromeapadilla/" target="_blank">LinkedIn</a>
+                <a href="https://www.behance.net/jeromeapadilla" target="_blank">Behance</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body Information Section -->
+    <div class="container section body-info">
+        <h2>About Me</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac urna quis ligula tincidunt consectetur.
+            Fusce id nisi ut mauris euismod facilisis vel sit amet nulla. Proin suscipit auctor odio, eget aliquet dolor
+            laoreet eu. Nullam ut pharetra ligula. In hac habitasse platea dictumst. Duis vel malesuada quam. Vestibulum
+            ac nunc felis. Sed volutpat semper velit, a tincidunt erat eleifend non.
+        </p>
+        <p>
+            okakakak
+        </p>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Jerome's Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
