@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.gallery-description {
+    color: rgb(77, 115, 135);
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 80px; /* Add margin to push content below the header */
+}
+
+.gallery {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.photo img {
+    max-width: 30%;
+    height: auto;
+    border: 2px solid #fff;
+    box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+h1 {
+    animation: float 3s ease-in-out infinite;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    background-color: #272727;
+    color: #fff;
+    padding: 30px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #272727;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.back-to-home a:hover {
+    background-color: #1d548f;
+}
+
+/* Floating animation for the "Rule of Thirds" text */
+.rule-of-thirds {
+    font-size: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

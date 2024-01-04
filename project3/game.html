@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Game Concept</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #stage{
+            background-color: rgb(201, 0, 0);
+            background-image: url(./image/background.png);
+            background-size: cover;
+            background-repeat: repeat-x;
+            background-position: bottom;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: absolute;           
+        }
+
+        #Kirito{
+            width: 200px;
+            height: 150px;
+            position: absolute;
+            z-index: 1;
+            transition: all 1.5s ease;
+            transition-delay: 250ms;
+            bottom: 60px;
+        }
+
+        #Kirito p{
+            width: 200px;
+            height: 150px;
+            background-image: url(./image/kirito.webp);
+            /* background-image: url(.image/Kirito.png); */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        #box{
+            background-image: url(./image/Heathcliff_Profile.webp);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 400px;
+            height: 300px;
+            cursor: pointer;
+            position: absolute;
+            /* left:calc(100% - 300px); */
+            left: 92%;
+            bottom: 10px;
+            z-index: 1;
+        
+    }
+        #box2 {
+            /* background: red; */
+            background-image: url(image/asuna1.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 500px;
+            height: 500px;
+            cursor: pointer;
+            position: absolute;
+            /* left:calc(100% - 300px); */
+            right: 1000px;
+            bottom: 70px;
+        }
+        #sound{
+            font-size: 9px;
+            width: 150px;
+            height: 35px;
+            position: fixed;
+            bottom: 5px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main id="stage">
+        <div id="Kirito">
+            <p></p>
+        </div>
+        <div id="box"></div>
+        <div id="box2"></div>
+    </main>
+    <button id="sound">Epic Soundtrack</button>
+    </main>
+
+    <script>
+
+        const Kirito = document.getElementById("Kirito");
+        const box = document.getElementById("box");
+        const box2 = document.getElementById("box2");
+
+        let audio1= new Audio('sound/kirito.mp3')
+
+        Kirito.addEventListener("click", function () {
+            //alert("Hello :)");
+            var utterance = new SpeechSynthesisUtterance("GOD MODE");
+            speechSynthesis.speak(utterance);
+        });
+        box.addEventListener("click", function () {
+            Kirito.style.transform = 'translateX(100vw) translateX(-220px)';
+        });
+
+
+        /**
+         * 
+         * Follow Mouse and flip background image 
+         * - based on coordinates 
+         * 
+         */
+        const stage = document.getElementById("stage");
+        const KiritoTexture = document.querySelector("#Kirito p");
+        stage.addEventListener('click', function (e) {
+            console.log(e.clientX + "|" + e.clientY);
+            // var coords = 'translateX(' + (e.clientX) + 'px) translateY(' + (e.clientY) + 'px)'
+            var coords = 'translateX(' + (e.clientX) + 'px)';
+            Kirito.style.transform = coords;
+
+            //https://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery/5968313
+            var style = window.getComputedStyle(Kirito);
+            var matrix = new WebKitCSSMatrix(style.transform);
+            var xVal = matrix.m41;
+            var yVal = matrix.m42;
+
+            console.log("X: " + xVal + " Y: " + yVal);
+            if (e.clientX < xVal)
+                KiritoTexture.style.transform = "scaleX(-1)";
+            else
+                KiritoTexture.style.transform = "scaleX(1)";
+
+        });
+        /**
+         * End of Follow Mouse stuff... 
+         */
+
+
+        // reacting to the box
+        let boxClicked = false;
+        box.addEventListener("click", function () {
+            boxClicked = true;
+            //Kirito.style.transform = 'translateX(100vw) translateX(-220px)';
+            console.log("box clicked");
+            transitionEnd = false;
+        })
+    
+        function box2Event() {
+            console.log("Play Duckie:)");
+            box2Clicked = false;
+
+            //play audio 
+            audio2.currentTime = 6;
+            audio2.pause();
+            audio2.play();
+            setTimeout(function () {
+                audio2.pause();
+                box.style.backgroundImage = "url(image/Duck.png)";
+            }, 5000)
+
+    var utterance = new SpeechSynthesisUtterance("Kirito");
+    speechSynthesis.speak(utterance);
+
+}
+
+        function boxEvent() {
+            console.log("Play Box Event");
+            boxClicked = false;
+
+            //play audio 
+            audio1.currentTime = 0;
+            audio1.pause();
+            audio1.play();
+            setTimeout(function () {
+                audio1.pause();
+            }, 5000)
+
+            var utterance = new SpeechSynthesisUtterance("Help");
+            speechSynthesis.speak(utterance);
+
+        }
+
+        Kirito.addEventListener("transitionend", function () {
+            console.log("transition finished");
+            if (boxClicked == true)
+            boxEvent();
+            //NEW 2nd BOX!!
+            if (box2Clicked == true)
+                box2Event();
+
+        });
+
+
+        /**
+         * Reacting to Keyboard input 
+         * - arrow keys...
+         */
+        document.onkeydown = checkKey;
+        function checkKey(e) {
+
+            e = e || window.event;
+            var style = window.getComputedStyle(Kirito);
+            var matrix = new WebKitCSSMatrix(style.transform);
+            var xVal = matrix.m41;
+            var yVal = matrix.m42;
+            var coords;
+            //Kirito.style.transition = 'none';
+
+            if (e.keyCode == '37') {
+                // left arrow
+                coords = 'translateX(' + (xVal - 500) + 'px) translateY(' + (yVal) + 'px)';
+                KiritoTexture.style.transform = "scaleX(-1)";
+            }
+            else if (e.keyCode == '39') {
+                // right arrow
+                coords = 'translateX(' + (xVal + 500) + 'px) translateY(' + (yVal) + 'px)';
+                KiritoTexture.style.transform = "scaleX(1)";
+            }
+            else if (e.keyCode == '38') {
+                // up arrow
+                coords = 'translateX(' + (xVal) + 'px) translateY(' + (yVal - 500) + 'px)';
+
+            }
+            else if (e.keyCode == '40') {
+                // down arrow
+                coords = 'translateX(' + (xVal) + 'px) translateY(' + (yVal + 500) + 'px)';
+            }
+            Kirito.style.transform = coords;
+        }
+
+        let audioBG = new Audio('sound/god.mp3');
+        audioBG.loop = true;
+        audioBG.volume = 0.6;
+
+        const musicBtn = document.getElementById("sound");
+        let musicOn = false;
+        musicBtn.addEventListener("click", function(){
+
+            if(!musicOn) {
+                audioBG.play();
+                musicOn = true;
+                musicBtn.innerHTML = "GOD MODE ON";
+            } else {
+                audioBG.pause();
+                musicOn = false;
+                musicBtn.innerHTML = "GOD MODE OFF";
+            }
+            
+            
+        })
+
+
+    </script>
+</body>
+
+</html>
