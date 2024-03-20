@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
 import MovieCategory from './MovieCategory';
-import 'App.js';
+import './App.css'; // Corrected import statement
 
 function App() {
   return (
