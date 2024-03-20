@@ -1,0 +1,34 @@
+/* site.css */
+
+/* Reset default margin and padding */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the movie container */
+#movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the container fill the entire viewport height */
+}
+
+/* Movie card styles */
+.movie-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Add margin to create space between movie cards */
+}
+
+.movie-card h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.movie-card p {
+    margin: 0;
+    color: #666;
+}
