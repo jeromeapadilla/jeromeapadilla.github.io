@@ -1,7 +1,6 @@
 /* App.css */
 .App {
-    text-align: center;
-    margin-top: 50px;
+    font-family: Arial, sans-serif;
   }
   
   .movie-category {
@@ -18,25 +17,36 @@
   .movie {
     width: 250px;
     margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .movie:hover {
+    transform: translateY(-5px);
   }
   
   .movie img {
     width: 100%;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   
   .movie-info {
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
+    background-color: #fff;
+    padding: 15px;
   }
   
   .movie-info h3 {
     margin: 0;
+    font-size: 1.2rem;
+    color: #333;
   }
   
   .movie-info p {
     margin: 5px 0;
+    font-size: 1rem;
+    color: #666;
   }
   
