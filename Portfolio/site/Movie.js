@@ -1,14 +1,12 @@
-// Movie.js
+// scripts.js
 import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const Movie = ({ movie }) => {
-  return (
-    <div className="movie-card">
-      <h3>{movie.title}</h3>
-      <p>Director: {movie.director}</p>
-      <p>Year: {movie.year}</p>
-    </div>
-  );
-}
+const moviesData = [
+  { id: 1, title: 'Inception', director: 'Christopher Nolan', year: 2010 },
+  { id: 2, title: 'The Shawshank Redemption', director: 'Frank Darabont', year: 1994 },
+  { id: 3, title: 'The Godfather', director: 'Francis Ford Coppola', year: 1972 }
+];
 
-export default Movie;
+ReactDOM.render(<App moviesData={moviesData} />, document.getElementById('movie-container'));

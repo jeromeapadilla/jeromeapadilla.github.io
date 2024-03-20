@@ -1,0 +1,42 @@
+/* App.css */
+.App {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .movie-category {
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  .movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .movie {
+    width: 250px;
+    margin: 20px;
+  }
+  
+  .movie img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .movie-info {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .movie-info h3 {
+    margin: 0;
+  }
+  
+  .movie-info p {
+    margin: 5px 0;
+  }
+  
