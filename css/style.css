@@ -85,21 +85,39 @@ a {
     }
 }
 
-/* Navigation */
+/* Navbar Logo Styles */
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.nav-brand .logo:hover .nav-logo {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Adjust navbar layout */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem var(--section-padding);
-    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
+    padding: 1rem var(--section-padding);
 }
+
 
 /* Add this to your CSS file */
 .logo {
@@ -660,6 +678,14 @@ a {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(8px);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo {
+        height: 32px;
+    }
+    
+    .nav-brand .logo span {
+        font-size: 1rem;
     }
 
     .menu-toggle {
