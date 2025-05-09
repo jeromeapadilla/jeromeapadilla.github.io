@@ -636,295 +636,230 @@ a {
 }
 
 
-/* Responsive Improvements */
-@media (max-width: 1024px) {
-    .hero-image-container {
-        width: 45%;
-        right: 2rem; /* Add some spacing from edge */
-    }
-    
-    /* Improve tablet layout */
-    .about-content {
-        gap: 2rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-}
-
+/* Mobile-first responsive updates */
 @media (max-width: 768px) {
     /* Navigation */
     .navbar {
-        padding: 1.25rem var(--section-padding);
+        padding: 1rem var(--section-padding);
+        backdrop-filter: blur(5px);
     }
     
-    .nav-links {
-        display: none;
+    .logo {
+        font-size: 1.1rem;
+        animation: none; /* Disable dramatic float on mobile */
     }
     
     /* Hero Section */
     .hero-section {
-        flex-direction: column;
-        padding: calc(70px + 1.5rem) 1.5rem 3rem;
-        text-align: center;
-        min-height: auto;
+        padding: calc(60px + 1rem) 1rem 2rem;
+        min-height: 90vh;
+        flex-direction: column-reverse; /* Image first on mobile */
     }
     
     .hero-content {
-        max-width: 100%;
-        margin-bottom: 2.5rem;
-        padding: 0 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0;
     }
     
     .hero-title {
-        font-size: clamp(2.25rem, 8vw, 3.5rem);
-        margin-bottom: 1.25rem;
-        line-height: 1.15;
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 1rem;
     }
     
     .hero-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1.25rem;
+        font-size: 0.85rem;
+        padding-bottom: 8px;
         animation: 
-            typing 2s steps(30, end) forwards,
-            floatText 3s ease-in-out 2s infinite;
+            typing 1.8s steps(30, end) forwards,
+            floatText 2s ease-in-out 1.8s infinite;
     }
     
     .hero-description {
-        font-size: 1.05rem;
-        margin: 0 auto 2.5rem;
-        max-width: 90%;
-        line-height: 1.7;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
     }
     
     .hero-image-container {
         position: relative;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
+        width: 85%;
+        max-width: 280px;
+        margin: 0 auto 1.5rem;
         top: auto;
         right: auto;
         transform: none;
     }
     
     .hero-image {
-        position: static;
-        transform: none;
-        animation: floatImageMobile 8s ease-in-out infinite;
+        animation: floatImageMobile 6s ease-in-out infinite;
     }
     
     @keyframes floatImageMobile {
-        0%, 100% {
-            transform: translateY(0) translateX(0) rotate(0deg);
-        }
-        50% {
-            transform: translateY(-8px) translateX(4px) rotate(1.5deg);
-        }
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-5px) rotate(1deg); }
     }
     
     /* About Section */
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .about-text {
-        text-align: center;
-    }
-    
-    .about-text p {
-        text-align: left;
-        font-size: 1.05rem;
+        gap: 1.5rem;
     }
     
     .about-image {
-        order: -1;
-        margin-bottom: 2rem;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 250px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
     }
     
     /* Projects Section */
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 1.5rem;
     }
     
     .project-card {
-        max-width: 350px;
-        margin: 0 auto;
+        max-width: 100%;
     }
     
-    /* General Sections */
+    .project-image {
+        height: 200px;
+    }
+    
+    /* Sections */
     .section {
-        padding: 4.5rem 1.5rem;
+        padding: 3.5rem 1rem;
     }
     
     .section-title {
-        font-size: clamp(1.8rem, 7vw, 2.5rem);
-        margin-bottom: 2.5rem;
+        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        margin-bottom: 2rem;
     }
     
     /* Contact Section */
     .contact-text {
-        margin-bottom: 2.5rem;
-        padding: 0 1rem;
-    }
-    
-    .email-link {
-        font-size: 1.25rem;
-        word-break: break-word;
-    }
-    
-    /* Footer */
-    .footer-links {
-        flex-direction: column;
-        gap: 1.25rem;
-        margin-bottom: 1.75rem;
-    }
-    
-    /* Animations */
-    .section-title[data-text="Let's Connect"] {
-        animation: connectFloatMobile 4s ease-in-out infinite;
-    }
-    
-    @keyframes connectFloatMobile {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        25% { transform: translateY(-3px) rotate(0.5deg); }
-        50% { transform: translateY(0) rotate(0deg); }
-        75% { transform: translateY(-2px) rotate(-0.5deg); }
-    }
-    
-    .section-title[data-text="Let's Connect"]::after {
-        height: 1.5px;
-        animation: 
-            connectUnderline 2.5s ease infinite,
-            connectShine 3.5s linear infinite;
-    }
-    
-    .email-link:hover {
-        animation: connectPulseMobile 1.25s ease infinite;
-    }
-    
-    @keyframes connectPulseMobile {
-        0%, 100% { transform: translateY(-1px) scale(1); }
-        50% { transform: translateY(-1px) scale(1.03); }
-    }
-    
-    /* Tap Animation */
-    .about-image:active {
-        animation: floatTap 0.6s ease-out;
-    }
-    
-    @keyframes floatTap {
-        0% { transform: translateY(0); }
-        30% { transform: translateY(-12px); }
-        70% { transform: translateY(-6px); }
-        100% { transform: translateY(0); }
-    }
-    
-    /* Button adjustments */
-    .btn {
-        width: 100%;
-        max-width: 250px;
-        margin: 0 auto;
-    }
-    
-    /* Social links */
-    .social-links {
-        justify-content: center;
-        gap: 1.25rem;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    .hero-section {
-        padding-top: calc(70px + 1rem);
-        padding-bottom: 2.5rem;
-    }
-    
-    .hero-title {
-        font-size: clamp(2rem, 9vw, 2.75rem);
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-        max-width: 100%;
-    }
-    
-    .section {
-        padding: 4rem 1.25rem;
-    }
-    
-    .section-title {
         margin-bottom: 2rem;
-    }
-    
-    .project-image {
-        height: 220px;
+        font-size: 1rem;
     }
     
     .email-link {
         font-size: 1.1rem;
     }
     
-    /* Disable some animations on very small devices */
-    .hero-image {
-        animation: none;
+    .contact-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        max-width: 220px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 3rem 1rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    /* Animations optimizations */
+    .floating-elements {
+        display: none; /* Disable floating elements on mobile */
+    }
+    
+    .section-title[data-text="Let's Connect"] {
+        animation: connectBreatheMobile 3s ease-in-out infinite;
+    }
+    
+    @keyframes connectBreatheMobile {
+        0%, 100% { letter-spacing: normal; }
+        50% { letter-spacing: 0.1em; }
+    }
+    
+    /* Mobile tap feedback */
+    .btn:active, 
+    .project-card:active,
+    .social-link:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Extra Small Devices (phones < 400px) */
+@media (max-width: 400px) {
+    :root {
+        --section-padding: 1rem;
+    }
+    
+    .hero-section {
+        padding-top: calc(60px + 0.5rem);
+    }
+    
+    .hero-title {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
     }
     
     .hero-subtitle {
-        animation: typing 2s steps(30, end) forwards;
+        font-size: 0.8rem;
     }
     
+    .hero-image-container {
+        width: 90%;
+    }
+    
+    .section {
+        padding: 3rem 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        font-size: 1.3rem;
+    }
+    
+    /* Simplify animations for very small devices */
     .hero-subtitle::after {
-        animation: 
-            underlineExpand 1s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards;
+        animation: underlineExpandMobile 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 1.8s forwards;
+    }
+    
+    .project-card:hover {
+        transform: none;
+        animation: none;
     }
 }
 
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-    .hero-subtitle::after {
-        animation: 
-            underlineExpandMobile 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards,
-            underlinePulseMobile 2s ease-in-out 2.8s infinite;
+/* Mobile landscape orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 3rem;
     }
-
-    /* Mobile-only animations */
-    @keyframes underlineExpandMobile {
-        from { 
-            width: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        to { 
-            width: 90%;
-            left: 5%;
-            transform: translateX(0);
-        }
+    
+    .hero-content {
+        margin-top: 0.5rem;
     }
-
-    @keyframes underlinePulseMobile {
-        0%, 100% { 
-            opacity: 1;
-            transform: scaleX(1);
-        }
-        50% { 
-            opacity: 0.9;
-            transform: scaleX(1.03);
-        }
+    
+    .hero-image-container {
+        width: 50%;
+        max-width: 220px;
+        margin-bottom: 1rem;
     }
-}
-
-/* Very small devices - disable pulse if needed */
-@media (max-width: 480px) {
-    .hero-subtitle::after {
-        animation: 
-            underlineExpandMobile 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards;
+    
+    .section {
+        padding: 3rem 1rem;
     }
 }
