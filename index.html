@@ -14,546 +14,8 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --black: #111111;
-            --white: #ffffff;
-            --gray: #f8f8f8;
-            --transition: cubic-bezier(0.4, 0, 0.2, 1);
-            --section-padding: clamp(1.5rem, 5vw, 4rem);
-            --border-radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Floating background elements */
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(17, 17, 17, 0.03);
-            filter: blur(30px);
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate(50px, 50px) rotate(180deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem var(--section-padding);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            position: relative;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--black);
-            transition: width 0.3s ease;
-        }
-
-        .logo:hover::after {
-            width: 100%;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--black);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section - Fixed spacing */
-        .hero-section {
-            min-height: 100vh;
-            padding: calc(80px + var(--section-padding)) var(--section-padding) var(--section-padding);
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            margin-top: 2rem;
-        }
-
-        .hero-image-container {
-            position: absolute;
-            right: var(--section-padding);
-            top: 60%;
-            transform: translateY(-50%);
-            width: 40%;
-            max-width: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image {
-            width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(-50%) scale(0.95);
-            animation: floatImage 8s ease-in-out infinite;
-        }
-
-        @keyframes floatImage {
-            0%, 100% {
-                transform: translateY(-50%) translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-55%) translateX(10px) rotate(2deg);
-            }
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: block;
-            color: rgba(17, 17, 17, 0.7);
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            position: relative;
-            padding-bottom: 10px;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-
-        .hero-subtitle::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: rgba(17, 17, 17, 0.3);
-        }
-
-        .hero-description {
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: rgba(17, 17, 17, 0.8);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2rem;
-            font-weight: 500;
-            border: 1px solid var(--black);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .btn:hover {
-            background-color: var(--black);
-            color: var(--white);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .social-link {
-            color: var(--black);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            display: inline-block;
-        }
-
-        .social-link:hover {
-            animation: bounce 0.5s ease, floatSocial 3s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes floatSocial {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        /* Sections */
-        .section {
-            padding: 6rem var(--section-padding);
-            position: relative;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        /* About Section */
-        .about-section {
-            background-color: var(--gray);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: rgba(17, 17, 17, 0.8);
-        }
-
-        .about-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover {
-            animation: floatImage 6s ease-in-out infinite;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .project-card-link {
-            display: block;
-            height: 100%;
-            width: 100%;
-            color: inherit;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            animation: floatCard 4s ease-in-out infinite;
-        }
-
-        @keyframes floatCard {
-            0%, 100% {
-                transform: translateY(-10px) rotate(1deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(2deg);
-            }
-        }
-
-        .project-image {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-info {
-            padding: 1.5rem;
-            text-align: center; /* Center align all text */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically if needed */
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-category {
-            font-size: 0.9rem;
-            color: rgba(17, 17, 17, 0.7);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background-color: var(--gray);
-            text-align: center;
-        }
-
-        .contact-text {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: rgba(17, 17, 17, 0.8);
-        }
-
-        .email-link {
-            font-size: 1.5rem;
-            font-weight: 500;
-            position: relative;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .email-link:hover {
-            animation: floatSocial 3s ease-in-out infinite;
-        }
-
-        .email-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--black);
-            transition: width 0.3s ease;
-        }
-
-        .email-link:hover::after {
-            width: 100%;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 4rem var(--section-padding);
-            text-align: center;
-            background-color: var(--black);
-            color: var(--white);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .footer-link:hover {
-            animation: floatSocial 3s ease-in-out infinite;
-        }
-
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--white);
-            transition: width 0.3s ease;
-        }
-
-        .footer-link:hover::after {
-            width: 100%;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                max-width: 100%;
-                padding-top: 0;
-            }
-
-            .hero-image-container {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 100%;
-                margin-top: 3rem;
-            }
-
-            .hero-image {
-                animation: floatImageMobile 8s ease-in-out infinite;
-            }
-
-            @keyframes floatImageMobile {
-                0%, 100% {
-                    transform: translateY(0) translateX(0) rotate(0deg);
-                }
-                50% {
-                    transform: translateY(-10px) translateX(5px) rotate(2deg);
-                }
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-                margin-bottom: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-section {
-                padding: calc(70px + var(--section-padding)) var(--section-padding) var(--section-padding);
-            }
-
-            .section {
-                padding: 5rem var(--section-padding);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -588,7 +50,7 @@
               
                 My goal is to merge clean, purposeful design with <strong>functional</strong>, <strong>efficient code</strong> to build innovative, user-centered solutions.
                 Above all, I have a deep love for <strong>programming</strong> and am always eager to <strong>learn</strong> and <strong>grow</strong>.
-              </p>              
+            </p>              
             <a href="#work" class="btn">View Projects</a>
             <div class="social-links">
                 <a href="https://github.com/jeromeapadilla" class="social-link" target="_blank">
@@ -600,7 +62,7 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="./75079666719.png" alt="Design Work" class="hero-image">
+            <img src="./images/75079666719.png" alt="Design Work" class="hero-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
         </div>
     </section>
 
@@ -610,20 +72,20 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    I'm Jerome Padilla, a passionate Computer Science student at Vanier College with a strong interest in both programming and design. My journey in technology began with hardware, repairing and building computers, which naturally evolved into software development and digital design.
+                    I'm <strong>Jerome Padilla</strong>, a passionate <strong>Computer Science student at Vanier College</strong> with a strong interest in both <strong>programming</strong> and <strong>design</strong>. My journey in technology began with <strong>hardware</strong>, repairing and building computers, which naturally evolved into <strong>software development</strong> and <strong>digital design</strong>.
                 </p>
                 <p>
-                    I specialize in creating clean, functional websites using modern web technologies. My technical skills include HTML, CSS, JavaScript, Python, and Java. I've developed several projects including a Java-based train ticketing system and a responsive website called Thinkflow, which helped me develop both my technical and design skills.
+                    I specialize in creating <strong>clean, functional websites</strong> using <strong>modern web technologies</strong>. My technical skills include <strong>HTML, CSS, JavaScript, Python, and Java</strong>. I've developed several projects including a <strong>Java-based train ticketing system</strong> and a <strong>responsive website called Thinkflow</strong>, which helped me develop both my <strong>technical</strong> and <strong>design skills</strong>.
                 </p>
                 <p>
-                    Beyond coding, I have experience with design tools like Photoshop, Illustrator, and Canva. I believe good design is as important as good code in creating exceptional digital experiences. My approach combines logical problem-solving with creative design thinking.
+                    Beyond coding, I have experience with <strong>design tools</strong> like <strong>Photoshop, Illustrator, and Canva</strong>. I believe <strong>good design</strong> is as important as good code in creating <strong>exceptional digital experiences</strong>. My approach combines <strong>logical problem-solving</strong> with <strong>creative design thinking</strong>.
                 </p>
                 <p>
-                    Currently, I'm focused on expanding my knowledge of web frameworks and software architecture while continuing to develop my design skills. I'm always looking for new challenges that allow me to grow as both a developer and designer.
+                    Currently, I'm focused on expanding my knowledge of <strong>web frameworks</strong> and <strong>software architecture</strong> while continuing to develop my <strong>design skills</strong>. I'm always looking for <strong>new challenges</strong> that allow me to grow as both a <strong>developer</strong> and <strong>designer</strong>.
                 </p>
-            </div>
+            </div>            
             <div class="about-image">
-                <img src="./Portfolio/about/IMG_4698.JPG" alt="Jerome Padilla">
+                <img src="./images/IMG_4698.JPG" alt="Jerome Padilla" onerror="this.src='images/placeholder/placeholder-image.jpg'">
             </div>
         </div>
     </section>
@@ -635,7 +97,7 @@
             <!-- Project 1 -->
             <a href="https://jerome11.582mi.com/think_flow/index.html" class="project-card-link">
                 <div class="project-card">
-                    <img src="./logo.png" alt="Project 1" class="project-image">
+                    <img src="./images/logo.png" alt="Project 1" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                     <div class="project-info">
                         <h3 class="project-title">Thinkflow Website</h3>
                         <p class="project-category">Web Development</p>
@@ -657,7 +119,7 @@
             <!-- Project 3 -->
             <a href="projects/portfolio-design.html" class="project-card-link">
                 <div class="project-card">
-                    <img src="./16884844862.png" alt="Project 3" class="project-image">
+                    <img src="./images/16884844862.png" alt="Project 3" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                     <div class="project-info">
                         <h3 class="project-title">Portfolio Design</h3>
                         <p class="project-category">Web Design</p>
@@ -668,7 +130,7 @@
             <!-- Project 4 -->
             <a href="projects/ui-components.html" class="project-card-link">
                 <div class="project-card">
-                    <img src="./16884844862.png" alt="Project 4" class="project-image">
+                    <img src="./images/16884844862.png" alt="Project 4" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                     <div class="project-info">
                         <h3 class="project-title">UI Components</h3>
                         <p class="project-category">Design System</p>
@@ -680,12 +142,12 @@
 
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
-        <h2 class="section-title">Let's Connect</h2>
+        <h2 class="section-title" data-text="Let's Connect">Let's Connect</h2>
         <p class="contact-text">
             Whether you're interested in collaborating on a project, have a new idea in mind, or just want to chat, I'm always open to new opportunities.
             I'm currently available for select freelance work and would love to discuss how we can bring your vision to life.
         </p>
-        <a href="mailto:jerome.padilla@example.com" class="email-link">jeromeapadilla@gmail.com</a>
+        <a href="mailto:jeromeapadilla@gmail.com" class="email-link">jeromeapadilla@gmail.com</a>
     </section>
 
     <!-- Footer -->
@@ -700,65 +162,7 @@
         <p class="copyright">© 2025 Jerome Padilla. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Smooth animations without lag
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = "rgba(255, 255, 255, 0.96)";
-                    navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.05)";
-                } else {
-                    navbar.style.background = "rgba(255, 255, 255, 0.9)";
-                    navbar.style.boxShadow = "none";
-                }
-            });
-
-            // Animate elements on load (excluding hero-subtitle)
-            const animateElements = () => {
-                const elements = document.querySelectorAll(
-                    '.hero-title, .hero-description, .btn, .social-link, .hero-image, .section-title, .about-image, .project-card, .about-text p, .contact-text, .email-link'
-                );
-
-                elements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                        el.style.transform = el.classList.contains('hero-image') 
-                            ? 'translateY(-50%) scale(1)' 
-                            : 'translateY(0)';
-                    }, index * 100);
-                });
-            };
-
-            // Initialize animations
-            setTimeout(animateElements, 300);
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Add floating effect to social links on page load
-            const socialLinks = document.querySelectorAll('.social-link');
-            socialLinks.forEach((link, index) => {
-                setTimeout(() => {
-                    link.style.animation = `floatSocial 3s ease-in-out ${index * 0.2}s infinite`;
-                }, 1000);
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
 </body>
 </html>
