@@ -1,5 +1,4 @@
-// Smooth animations without lag
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
@@ -12,7 +11,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Animate elements on load (excluding hero-subtitle)
+    // Mobile menu toggle
+    const toggleButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navLinkItems = document.querySelectorAll(".nav-link");
+
+    if (toggleButton && navLinks) {
+        toggleButton.addEventListener("click", () => {
+            // Toggle active states
+            toggleButton.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        navLinkItems.forEach(link => {
+            link.addEventListener("click", () => {
+                toggleButton.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Close mobile menu if open
+            if (navLinks && navLinks.classList.contains('active')) {
+                toggleButton.classList.remove("active");
+                navLinks.classList.remove("active");
+            }
+
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = window.innerWidth <= 768 ? 70 : 80;
+                window.scrollTo({
+                    top: targetElement.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Animate elements on load
     const animateElements = () => {
         const elements = document.querySelectorAll(
             '.hero-title, .hero-description, .btn, .social-link, .hero-image, .section-title, .about-image, .project-card, .about-text p, .contact-text, .email-link'
@@ -28,27 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Initialize animations
     setTimeout(animateElements, 300);
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Add floating effect to social links on page load
+    // Social links animation
     const socialLinks = document.querySelectorAll('.social-link');
     socialLinks.forEach((link, index) => {
         setTimeout(() => {
