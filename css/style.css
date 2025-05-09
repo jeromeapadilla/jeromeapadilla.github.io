@@ -281,7 +281,6 @@ a {
     font-weight: 500;
     border: 1px solid var(--black);
     transition: all 0.3s ease;
-    opacity: 0;
     transform: translateY(20px);
 }
 
@@ -526,146 +525,6 @@ a {
     opacity: 0.7;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .hero-image-container {
-        width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        padding: calc(70px + var(--section-padding)) var(--section-padding) var(--section-padding);
-        text-align: center;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    .hero-image-container {
-        position: relative;
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
-        top: auto;
-        right: auto;
-        transform: none;
-    }
-
-    .hero-image {
-        position: static;
-        transform: none !important;
-        animation: floatImageMobile 8s ease-in-out infinite;
-    }
-
-    @keyframes floatImageMobile {
-        0%, 100% {
-            transform: translateY(0) translateX(0) rotate(0deg);
-        }
-        50% {
-            transform: translateY(-10px) translateX(5px) rotate(2deg);
-        }
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 5rem var(--section-padding);
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .about-image {
-        animation: none !important;
-    }
-
-    .about-image:active {
-        animation: floatTap 0.8s ease-out;
-    }
-
-    .section-title[data-text="Let's Connect"] {
-    position: relative;
-    display: inline-block;
-    animation: connectFloat 3s ease-in-out infinite;
-}
-
-@keyframes connectFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-5px) rotate(1deg); }
-    50% { transform: translateY(0) rotate(0deg); }
-    75% { transform: translateY(-3px) rotate(-1deg); }
-}
-
-.section-title[data-text="Let's Connect"]::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--black), transparent);
-    background-size: 200% 100%;
-    animation: connectUnderline 3s ease infinite, 
-               connectShine 4s linear infinite;
-}
-
-@keyframes connectUnderline {
-    0% { transform: scaleX(0); opacity: 0; }
-    50% { transform: scaleX(1); opacity: 1; }
-    100% { transform: scaleX(0); opacity: 0; }
-}
-
-@keyframes connectShine {
-    0% { background-position: -100% 0; }
-    100% { background-position: 100% 0; }
-}
-
-.email-link {
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.email-link:hover {
-    animation: connectPulse 1.5s ease infinite;
-    transform: translateY(-2px);
-}
-
-@keyframes connectPulse {
-    0%, 100% { transform: translateY(-2px) scale(1); }
-    50% { transform: translateY(-2px) scale(1.05); }
-}
-
-    @keyframes floatTap {
-        0% {
-            transform: translateY(0);
-        }
-        30% {
-            transform: translateY(-15px);
-        }
-        70% {
-            transform: translateY(-8px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-}
 
 /* Let's Connect Title Animation */
 .section-title[data-text="Let's Connect"] {
@@ -752,4 +611,320 @@ a {
 .hero-description strong:hover::after {
     transform: scaleX(1);
     transform-origin: right;
+}
+
+/* Contact section layout - matches other button styles */
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-actions .resume-link {
+    padding: 0.9rem 2rem; /* Matches your .btn style */
+    font-size: 1rem;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+
+/* Responsive Improvements */
+@media (max-width: 1024px) {
+    .hero-image-container {
+        width: 45%;
+        right: 2rem; /* Add some spacing from edge */
+    }
+    
+    /* Improve tablet layout */
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        padding: 1.25rem var(--section-padding);
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        flex-direction: column;
+        padding: calc(70px + 1.5rem) 1.5rem 3rem;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.25rem, 8vw, 3.5rem);
+        margin-bottom: 1.25rem;
+        line-height: 1.15;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+        animation: 
+            typing 2s steps(30, end) forwards,
+            floatText 3s ease-in-out 2s infinite;
+    }
+    
+    .hero-description {
+        font-size: 1.05rem;
+        margin: 0 auto 2.5rem;
+        max-width: 90%;
+        line-height: 1.7;
+    }
+    
+    .hero-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        top: auto;
+        right: auto;
+        transform: none;
+    }
+    
+    .hero-image {
+        position: static;
+        transform: none;
+        animation: floatImageMobile 8s ease-in-out infinite;
+    }
+    
+    @keyframes floatImageMobile {
+        0%, 100% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-8px) translateX(4px) rotate(1.5deg);
+        }
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-text p {
+        text-align: left;
+        font-size: 1.05rem;
+    }
+    
+    .about-image {
+        order: -1;
+        margin-bottom: 2rem;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+    
+    .project-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    /* General Sections */
+    .section {
+        padding: 4.5rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Contact Section */
+    .contact-text {
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+    }
+    
+    .email-link {
+        font-size: 1.25rem;
+        word-break: break-word;
+    }
+    
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-bottom: 1.75rem;
+    }
+    
+    /* Animations */
+    .section-title[data-text="Let's Connect"] {
+        animation: connectFloatMobile 4s ease-in-out infinite;
+    }
+    
+    @keyframes connectFloatMobile {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-3px) rotate(0.5deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-2px) rotate(-0.5deg); }
+    }
+    
+    .section-title[data-text="Let's Connect"]::after {
+        height: 1.5px;
+        animation: 
+            connectUnderline 2.5s ease infinite,
+            connectShine 3.5s linear infinite;
+    }
+    
+    .email-link:hover {
+        animation: connectPulseMobile 1.25s ease infinite;
+    }
+    
+    @keyframes connectPulseMobile {
+        0%, 100% { transform: translateY(-1px) scale(1); }
+        50% { transform: translateY(-1px) scale(1.03); }
+    }
+    
+    /* Tap Animation */
+    .about-image:active {
+        animation: floatTap 0.6s ease-out;
+    }
+    
+    @keyframes floatTap {
+        0% { transform: translateY(0); }
+        30% { transform: translateY(-12px); }
+        70% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+    }
+    
+    /* Button adjustments */
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    /* Social links */
+    .social-links {
+        justify-content: center;
+        gap: 1.25rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .hero-section {
+        padding-top: calc(70px + 1rem);
+        padding-bottom: 2.5rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .section {
+        padding: 4rem 1.25rem;
+    }
+    
+    .section-title {
+        margin-bottom: 2rem;
+    }
+    
+    .project-image {
+        height: 220px;
+    }
+    
+    .email-link {
+        font-size: 1.1rem;
+    }
+    
+    /* Disable some animations on very small devices */
+    .hero-image {
+        animation: none;
+    }
+    
+    .hero-subtitle {
+        animation: typing 2s steps(30, end) forwards;
+    }
+    
+    .hero-subtitle::after {
+        animation: 
+            underlineExpand 1s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards;
+    }
+}
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .hero-subtitle::after {
+        animation: 
+            underlineExpandMobile 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards,
+            underlinePulseMobile 2s ease-in-out 2.8s infinite;
+    }
+
+    /* Mobile-only animations */
+    @keyframes underlineExpandMobile {
+        from { 
+            width: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        to { 
+            width: 90%;
+            left: 5%;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes underlinePulseMobile {
+        0%, 100% { 
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        50% { 
+            opacity: 0.9;
+            transform: scaleX(1.03);
+        }
+    }
+}
+
+/* Very small devices - disable pulse if needed */
+@media (max-width: 480px) {
+    .hero-subtitle::after {
+        animation: 
+            underlineExpandMobile 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 2s forwards;
+    }
 }
