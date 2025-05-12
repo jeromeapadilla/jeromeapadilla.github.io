@@ -361,10 +361,11 @@ a {
 }
 
 .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(20px);
+    transition: text-shadow 0.3s ease;
+}
+
+.section-title:hover {
+    text-shadow: 0 0 10px rgba(17, 17, 17, 0.3);
 }
 
 /* About Section */
