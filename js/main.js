@@ -11,27 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Mobile menu toggle
-    const toggleButton = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-    const navLinkItems = document.querySelectorAll(".nav-link");
-
-    if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", () => {
-            // Toggle active states
-            toggleButton.classList.toggle("active");
-            navLinks.classList.toggle("active");
-        });
-
-        // Close menu when clicking a link
-        navLinkItems.forEach(link => {
-            link.addEventListener("click", () => {
-                toggleButton.classList.remove("active");
-                navLinks.classList.remove("active");
-            });
-        });
-    }
-
+    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -79,5 +59,33 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             link.style.animation = `floatSocial 3s ease-in-out ${index * 0.2}s infinite`;
         }, 1000);
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        // Toggle the active class on both the button and the menu
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        
+        // Toggle body overflow when menu is open
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
     });
 });
