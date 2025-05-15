@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train Ticketing System | Jerome Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-details.css">
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" href="./favicon/favicon.ico" />
@@ -21,24 +22,126 @@
                 <span>JEROME PORTFOLIO</span>
             </a>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">☰</button> <!-- ADD THIS -->
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
+        </button>
         <div class="nav-links">
           <a href="../index.html#about" class="nav-link">About</a>
           <a href="../index.html#work" class="nav-link">Work</a>
           <a href="../index.html#contact" class="nav-link">Contact</a>
           <a href="../Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank">Resume</a>
         </div>
-      </nav>
-
+    </nav>
 
     <main class="section">
         <h1 class="section-title">Train Ticketing System</h1>
         <div class="project-details">
-            <!-- Add your project details here -->
-            <p>This is a detailed view of the Train Ticketing System project.</p>
+            <div class="project-description">
+                <div class="project-description">
+                    <p>The Train Ticketing System is a classroom project developed to replicate the ticketing booth system used in the Light Rail Transit (LRT) system in the Philippines. Designed as part of our programming class, the project aimed to simulate real-world fare processing and passenger management using Java as the core programming language.</p>
+                
+                    <p>The system uses a 3D array to represent ticket data across multiple stations, train lines, and time slots, allowing for accurate fare calculation based on origin, destination, and number of passengers. This structure enabled dynamic ticket pricing and management of seat availability per route and time.</p>
+                
+                    <div class="project-features">
+                        <h3>Key Features:</h3>
+                        <ul>
+                            <li><strong>Station-to-station fare calculation using 3D arrays</strong></li>
+                            <li><strong>User input for number of passengers and travel route</strong></li>
+                            <li><strong>Simulation of LRT ticket booth functionality</strong></li>
+                            <li><strong>Console-based UI for ticket booking and fare display</strong></li>
+                            <li><strong>Data validation for passenger input and route selection</strong></li>
+                            <li><strong>Expandable logic for additional train lines or classes</strong></li>                            
+                        </ul>
+                    </div>
+                
+                    <p>This project was completed in our programming course in the Philippines, focusing on foundational logic, multidimensional arrays, and real-life system replication. It served as both a learning exercise and a practical demonstration of how programming can model transportation systems effectively.</p>
+                </div>
+            
+            <div class="gallery">
+                <h3 class="gallery-title">Screenshots:</h3>
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/1.PNG" alt="Homepage Interface" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 1</div>
+                    </div>
+                    
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/2.PNG" alt="Search Results" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 2</div>
+                    </div>
+                    
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/3.PNG" alt="Seat Selection" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 3</div>
+                    </div>
+                    
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/4.PNG" alt="Payment Process" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 4</div>
+                    </div>
+                    
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/5.PNG" alt="Ticket Confirmation" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 5</div>
+                    </div>
+                    
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/6.PNG" alt="User Dashboard" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 6</div>
+                    </div>
+                    
+                    <!-- Gallery Item 7 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/7.PNG" alt="Admin Panel" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 7</div>
+                    </div>
+                    
+                    <!-- Gallery Item 8 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/8.PNG" alt="Mobile View" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 8</div>
+                    </div>
+                    
+                    <!-- Gallery Item 9 -->
+                    <div class="gallery-item">
+                        <img src="../images/train/9.PNG" alt="Analytics Dashboard" class="gallery-image" loading="lazy">
+                        <div class="gallery-caption">Image 9</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lightbox Modal -->
+            <div class="lightbox" id="lightbox">
+                <span class="close-lightbox">&times;</span>
+                <div class="lightbox-content">
+                    <img src="" alt="" class="lightbox-image" id="lightbox-image">
+                    <div class="lightbox-caption" id="lightbox-caption"></div>
+                </div>
+                <div class="nav-arrows">
+                    <div class="arrow" id="prev-arrow">&#10094;</div>
+                    <div class="arrow" id="next-arrow">&#10095;</div>
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <h3>Technical Implementation</h3>
+                <p>The ticketing booth system was implemented using basic array structures to calculate total fares based on the number of passengers and the cost per ticket. This simple yet effective approach allowed users to input how many people were traveling and how much each ticket cost, with the total fare calculated by multiplying these values using array-based logic.</p>
+                
+                <p>One of the key technical considerations was ensuring the system could handle multiple fare entries and support future scalability (e.g., different prices for different routes or classes). By using arrays, the system simulated fare distribution per person and summed them up to get accurate totals. Basic validation was added to ensure input correctness and avoid negative or invalid values.</p>
+                
+                <p>This lightweight solution is ideal for introductory projects or small-scale kiosks and can be further expanded with dynamic fare classes, payment integration, and a user interface built with frontend frameworks like React. Future enhancements may also include database storage, user session handling, and real-time updates for seat availability.</p>
+            </div>
         </div>
     </main>
 
     <script src="../js/main.js"></script>
+    <script src="../js/lightbox.js"></script>
 </body>
 </html>
