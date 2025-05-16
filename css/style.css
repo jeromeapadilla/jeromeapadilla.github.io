@@ -759,6 +759,31 @@ a {
         padding-bottom: 3rem;
     }
 
+    .hero-subtitle::after {
+        /* Override the animation to go to 100% on mobile */
+        animation: 
+            underlineExpandMobile 1s cubic-bezier(0.25, 0.1, 0.25, 1) 2.5s forwards,
+            underlinePulse 2s ease-in-out 3.5s infinite;
+    }
+
+    @keyframes underlineExpandMobile {
+        from { 
+            width: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        to { 
+            width: 100%; 
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+    
+    /* Also ensure the static state is 100% on mobile */
+    .hero-subtitle::after {
+        width: 100%;
+    }
+
     .hero-content {
         max-width: 100%;
         margin-top: 1.5rem;
@@ -767,22 +792,6 @@ a {
     .hero-title {
         font-size: 2.2rem;
         margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
-        display: block;
-        color: rgba(17, 17, 17, 0.9);
-        font-weight: 700;
-        font-family: 'Inter', sans-serif;
-        position: relative;
-        padding-bottom: 12px;
-        opacity: 1 !important;
-        transform: none !important;
-        overflow: hidden;
     }
 
     .hero-description {
@@ -952,4 +961,5 @@ a {
     .footer-links {
         gap: 0.75rem;
     }
+
 }
