@@ -879,7 +879,7 @@ a {
 }
 
 /* Extra small devices (phones, 480px and down) */
-@media (max-width: 480px) {
+@media (max-width: 769px) {
     :root {
         --section-padding: 1rem;
     }
@@ -901,7 +901,7 @@ a {
     }
 
     .hero-subtitle {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .section {
