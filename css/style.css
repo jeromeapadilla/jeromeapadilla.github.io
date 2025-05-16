@@ -762,7 +762,7 @@ a {
     .hero-subtitle::after {
         /* Override the animation to go to 100% on mobile */
         animation: 
-            underlineExpandMobile 1s cubic-bezier(0.25, 0.1, 0.25, 1) 2.5s forwards,
+            underlineExpandMobile 1s cubic-bezier(0.25, 0.1, 0.25, 1) 1.5s forwards,
             underlinePulse 2s ease-in-out 3.5s infinite;
     }
 
