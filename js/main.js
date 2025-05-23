@@ -102,16 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add to main.js
 document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    card.addEventListener('mouseenter', () => {
+        card.style.boxShadow = '0 0 20px rgba(112, 133, 227, 0.3)';
+        card.style.transition = 'box-shadow 0.3s ease';
     });
     
     card.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        card.style.boxShadow = '';
     });
 });
 
@@ -219,4 +217,17 @@ document.querySelectorAll('.skill').forEach(skill => {
     setTimeout(() => {
         progressBar.style.width = `${level}%`;
     }, 100);
+});
+
+// Add this to your main.js
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
 });

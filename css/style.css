@@ -31,13 +31,16 @@ body {
 
 /* Add to your floating elements */
 .floating-element {
-    background: radial-gradient(circle, rgba(67,97,238,0.1) 0%, rgba(255,255,255,0) 70%);
-    animation: float 15s infinite linear, pulse 8s infinite alternate;
+    animation: wave 12s infinite ease-in-out;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    100% { opacity: 0.8; }
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
 }
 
 .cursor-trailer {
@@ -998,7 +1001,6 @@ a {
         width: 90%;
         margin: 0 auto;
         animation: none;
-        transform: none !important;
     }
 
     .social-links {
@@ -1127,21 +1129,6 @@ a {
 
     .email-link {
         font-size: 1rem;
-    }
-    .floating-element {
-        animation: float-mobile 15s infinite linear, pulse 8s infinite alternate;
-    }
-    
-    @keyframes float-mobile {
-        0% {
-            transform: translate(0, 0);
-        }
-        50% {
-            transform: translate(20px, 20px);
-        }
-        100% {
-            transform: translate(0, 0);
-        }
     }
 }
 
