@@ -889,6 +889,8 @@ a {
 
 /* Updated Responsive Styles */
 @media (max-width: 768px) {
+
+    
     /* Navbar */
     .menu-toggle {
         display: flex;
@@ -1125,6 +1127,21 @@ a {
 
     .email-link {
         font-size: 1rem;
+    }
+    .floating-element {
+        animation: float-mobile 15s infinite linear, pulse 8s infinite alternate;
+    }
+    
+    @keyframes float-mobile {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(20px, 20px);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
     }
 }
 
