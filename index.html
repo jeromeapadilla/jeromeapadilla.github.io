@@ -41,6 +41,7 @@
                 <span>JEROME PORTFOLIO</span>
             </a>
         </div>
+        
         <button class="menu-toggle" aria-label="Toggle Menu">
             <span class="hamburger-icon">☰</span>
             <span class="close-icon">✕</span>
@@ -71,6 +72,33 @@
                 My goal is to merge clean, purposeful design with <strong>functional</strong>, <strong>efficient code</strong> to build innovative, user-centered solutions.
                 Above all, I have a deep love for <strong>programming</strong> and am always eager to <strong>learn</strong> and <strong>grow</strong>.
             </p>              
+
+        <div class="skills-container">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Web Development</h4>
+                    <br>
+                    <div class="skill" data-skill="HTML" data-level="90"></div>
+                    <div class="skill" data-skill="CSS" data-level="85"></div>
+                    <div class="skill" data-skill="JavaScript" data-level="75"></div>
+                </div>
+                <div class="skill-category">
+                    <h4>Programming</h4>
+                    <br>
+                    <div class="skill" data-skill="Python" data-level="80"></div>
+                    <div class="skill" data-skill="Java" data-level="70"></div>
+                </div>
+                <div class="skill-category">
+                    <h4>Design Tools</h4>
+                    <br>
+                    <div class="skill" data-skill="Photoshop" data-level="85"></div>
+                    <div class="skill" data-skill="Illustrator" data-level="75"></div>
+                    <div class="skill" data-skill="Canva" data-level="90"></div>
+                </div>
+            </div>
+        </div>
+
             <a href="#work" class="btn">View Projects</a>
             <div class="social-links">
                 <a href="https:/github.com/jeromeapadilla" class="social-link" target="_blank">
@@ -110,6 +138,31 @@
         </div>
     </section>
 
+    <!-- Add above projects section -->
+    <div class="project-filters">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">
+                <span>All</span>
+                <div class="filter-indicator"></div>
+            </button>
+            <button class="filter-btn" data-filter="web">
+                <span>Web</span>
+                <div class="filter-indicator"></div>
+            </button>
+            <button class="filter-btn" data-filter="programming">
+                <span>Programming</span>
+                <div class="filter-indicator"></div>
+            </button>
+            <button class="filter-btn" data-filter="design">
+                <span>Design</span>
+                <div class="filter-indicator"></div>
+            </button>
+        </div>
+        <div class="filter-counter">
+            <span class="active-count">0</span>/<span class="total-count">0</span> projects
+        </div>
+    </div>
+
     <!-- Projects Section -->
     <section class="section" id="work">
         <h2 class="section-title">My Work</h2>
@@ -119,7 +172,7 @@
             <h3 class="category-title">Web Development</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <a href="https://jerome11.582mi.com/think_flow/index.html" class="project-card-link">
+                <a href="https://jerome11.582mi.com/think_flow/index.html" class="project-card-link web">
                     <div class="project-card">
                         <img src="./images/logo.png" alt="Thinkflow Website" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
@@ -130,7 +183,7 @@
                 </a>
                 
                 <!-- Project 2 -->
-                <a href="projects/portfolio-design.html" class="project-card-link">
+                <a href="projects/portfolio-design.html" class="project-card-link web">
                     <div class="project-card">
                         <img src="./uplift.jpg" alt="Portfolio Design" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
@@ -147,7 +200,7 @@
             <h3 class="category-title">Programming</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <a href="projects/train-ticketing.html" class="project-card-link">
+                <a href="projects/train-ticketing.html" class="project-card-link programming">
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Train Ticketing System" class="project-image">
                         <div class="project-info">
@@ -158,7 +211,7 @@
                 </a>
                 
                 <!-- Project 2 -->
-                <a href="#" class="project-card-link">
+                <a href="#" class="project-card-link programming">
                     <div class="project-card">
                         <img src="./images/16884844862.png" alt="Python Project" class="project-image">
                         <div class="project-info">
@@ -175,7 +228,7 @@
             <h3 class="category-title">Graphic Design</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <a href="projects/ui-components.html" class="project-card-link">
+                <a href="projects/ui-components.html" class="project-card-link design">
                     <div class="project-card">
                         <img src="./images/16884844862.png" alt="UI Components" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
@@ -186,7 +239,7 @@
                 </a>
                 
                 <!-- Project 2 -->
-                <a href="#" class="project-card-link">
+                <a href="#" class="project-card-link design">
                     <div class="project-card">
                         <img src="./images/16884844862.png" alt="Brand Identity" class="project-image">
                         <div class="project-info">

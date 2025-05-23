@@ -89,3 +89,117 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Add to main.js
+document.addEventListener('DOMContentLoaded', function() {
+    const cursorTrailer = document.createElement('div');
+    cursorTrailer.classList.add('cursor-trailer');
+    document.body.appendChild(cursorTrailer);
+    
+    document.addEventListener('mousemove', e => {
+        cursorTrailer.style.left = `${e.pageX}px`;
+        cursorTrailer.style.top = `${e.pageY}px`;
+    });
+});
+
+// Add to main.js
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+});
+
+// Enhanced filtering functionality
+function setupProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card-link');
+    const activeCountElement = document.querySelector('.active-count');
+    const totalCountElement = document.querySelector('.total-count');
+
+    // Set total count
+    totalCountElement.textContent = projectCards.length;
+
+    // Initialize with all projects visible
+    updateActiveCount('all');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const filter = this.dataset.filter;
+
+            // Update active button
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter projects with animation
+            filterProjects(filter);
+
+            // Update counter
+            updateActiveCount(filter);
+        });
+    });
+
+    function filterProjects(filter) {
+        projectCards.forEach((card, index) => {
+            if (filter === 'all' || card.classList.contains(filter)) {
+                // Show matching card with animation
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, 300);
+                }, index * 50);
+            } else {
+                // Hide non-matching card with animation
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }, index * 50);
+            }
+        });
+    }
+
+    function updateActiveCount(filter) {
+        const matchingCards = filter === 'all'
+            ? document.querySelectorAll('.project-card-link')
+            : document.querySelectorAll(`.project-card-link.${filter}`);
+
+        const target = matchingCards.length;
+        const activeCount = activeCountElement;
+        let current = parseInt(activeCount.textContent) || 0;
+        const increment = target > current ? 1 : -1;
+
+        if (current === target) {
+            activeCount.textContent = target;
+            return;
+        }
+
+        const updateCounter = () => {
+            current += increment;
+            activeCount.textContent = current;
+
+            if ((increment === 1 && current < target) ||
+                (increment === -1 && current > target)) {
+                requestAnimationFrame(updateCounter);
+            }
+        };
+
+        updateCounter();
+    }
+}
+
+// Call this function when DOM is loaded
+document.addEventListener('DOMContentLoaded', setupProjectFilters);
