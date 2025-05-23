@@ -70,6 +70,7 @@ body {
 }
 
 .skill {
+    position: relative;
     margin-bottom: 1rem;
 }
 
@@ -80,19 +81,28 @@ body {
     font-weight: 500;
 }
 
-.skill::after {
-    content: '';
+.skill-progress {
     display: block;
     height: 8px;
     background: linear-gradient(90deg, var(--category-web), rgba(67, 97, 238, 0.3));
     border-radius: 4px;
     width: 0;
-    animation: skillFill 1.5s forwards;
+    transition: width 1.5s ease;
 }
 
-@keyframes skillFill {
-    to { width: attr(data-level); }
+/* Keep your category-specific colors but update the selectors */
+.skill-category:nth-child(1) .skill-progress {
+    background: linear-gradient(90deg, var(--category-web), rgba(67, 97, 238, 0.3));
 }
+
+.skill-category:nth-child(2) .skill-progress {
+    background: linear-gradient(90deg, var(--category-programming), rgba(58, 12, 163, 0.3));
+}
+
+.skill-category:nth-child(3) .skill-progress {
+    background: linear-gradient(90deg, var(--category-design), rgba(114, 9, 183, 0.3));
+}
+
 
 /* Project Filters */
 .project-filters {

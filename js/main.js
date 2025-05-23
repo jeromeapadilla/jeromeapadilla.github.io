@@ -203,3 +203,20 @@ function setupProjectFilters() {
 
 // Call this function when DOM is loaded
 document.addEventListener('DOMContentLoaded', setupProjectFilters);
+
+
+// Add this to your existing DOMContentLoaded event listener
+document.querySelectorAll('.skill').forEach(skill => {
+    const level = skill.getAttribute('data-level');
+    skill.style.setProperty('--skill-level', `${level}%`);
+    
+    // Create the progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.className = 'skill-progress';
+    skill.appendChild(progressBar);
+    
+    // Animate it
+    setTimeout(() => {
+        progressBar.style.width = `${level}%`;
+    }, 100);
+});
