@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Design | Jerome Portfolio</title>
+    <title>Uplift | Jerome Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portfolio.css">
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" href="./favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
     <meta name="./favicon/apple-mobile-web-app-title" content="JP" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <!-- Navigation -->
@@ -21,23 +23,114 @@
                 <span>JEROME PORTFOLIO</span>
             </a>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">☰</button> <!-- ADD THIS -->
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
         <div class="nav-links">
           <a href="../index.html#about" class="nav-link">About</a>
           <a href="../index.html#work" class="nav-link">Work</a>
           <a href="../index.html#contact" class="nav-link">Contact</a>
           <a href="../Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank">Resume</a>
         </div>
-      </nav>
+    </nav>
 
     <main class="section">
-        <h1 class="section-title">Portfolio Design</h1>
+        <h1 class="section-title animate__animated animate__fadeInDown">Uplift Website Business</h1>
         <div class="project-details">
-            <!-- Add your project details here -->
-            <p>This is a detailed view of the Portfolio Design project.</p>
+            <div class="project-overview animate__animated animate__fadeIn animate__delay-1s">
+                <h2>Project Overview</h2>
+                <p>This portfolio website was designed to showcase my skills, projects, and professional journey in an elegant and interactive way. The purpose was to create a modern, responsive platform that highlights my capabilities while providing an engaging user experience.</p>
+                
+                <div class="project-link-container">
+                    <a href="https://jeromeapadilla.github.io/uplift/" class="project-link animate__animated animate__pulse animate__infinite" target="_blank">
+                        Visit Live Website
+                        <svg class="link-icon" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19V6.413L11.207 14.207L9.793 12.793L17.585 5H13V3H21Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-features animate__animated animate__fadeIn animate__delay-2s">
+                <h3>Key Features</h3>
+                <ul class="features-list">
+                    <li><span>Responsive Design:</span> Website Business responsive</li>
+                    <li><span>Interactive Elements:</span> Engaging animations and hover effects</li>
+                    <li><span>Project Showcase:</span> Organized and detailed </li>
+                    <li><span>Performance Optimized:</span> Fast loading times and smooth transitions</li>
+                    <li><span>Modern Aesthetics:</span> Clean design with thoughtful typography and spacing</li>
+                </ul>
+            </div>
+            
+            <div class="project-tech animate__animated animate__fadeIn animate__delay-3s">
+                <h3>Technologies Used</h3>
+                <div class="tech-bubbles">
+                    <span class="tech-bubble">HTML5</span>
+                    <span class="tech-bubble">CSS3</span>
+                    <span class="tech-bubble">JavaScript</span>
+                    <span class="tech-bubble">Responsive Design</span>
+                    <span class="tech-bubble">CSS Animations</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-gallery">
+            <div class="gallery-item animate__animated animate__fadeInRight">
+                <img src="../images/portfolio-screenshot2.jpg" alt="Portfolio Projects Section" class="gallery-image">
+                <p>Projects Section</p>
+            </div>
         </div>
     </main>
 
     <script src="../js/main.js"></script>
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate__animated');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.classList.add(element.getAttribute('class').split('animate__animated ')[1].split(' ')[0]);
+                    }
+                });
+            };
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Floating animation for tech bubbles
+            const techBubbles = document.querySelectorAll('.tech-bubble');
+            techBubbles.forEach((bubble, index) => {
+                // Random delay for staggered animation
+                bubble.style.animationDelay = `${index * 0.2}s`;
+                
+                // Add hover effect
+                bubble.addEventListener('mouseover', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.1)';
+                });
+                
+                bubble.addEventListener('mouseout', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Project link animation
+            const projectLink = document.querySelector('.project-link');
+            projectLink.addEventListener('mouseover', function() {
+                this.classList.add('animate__pulse');
+            });
+            
+            projectLink.addEventListener('mouseout', function() {
+                this.classList.remove('animate__pulse');
+            });
+        });
+    </script>
 </body>
 </html>
