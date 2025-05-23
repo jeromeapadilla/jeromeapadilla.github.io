@@ -65,6 +65,165 @@
     background-color: #5a06a0;
 }
 
+.project-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--category-design);
+    text-align: center;
+    margin: 0.5rem auto 2rem;
+    max-width: 600px;
+    position: relative;
+    padding-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--category-design), transparent);
+    opacity: 0.7;
+}
+
+/* Animation on load */
+.project-subtitle {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .project-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem 1rem;
+    }
+}
+
+/* Client Success Stories Section */
+.project-challenges {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--category-design);
+}
+
+.project-challenges h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--category-design);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-challenges h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: rgba(114, 9, 183, 0.3);
+}
+
+.challenge-item {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 1px solid rgba(114, 9, 183, 0.1);
+}
+
+.challenge-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(114, 9, 183, 0.1);
+}
+
+.challenge-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.challenge-item h4::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--category-design);
+    font-weight: bold;
+}
+
+.challenge-item p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.challenge-item p strong {
+    color: var(--category-design);
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-challenges {
+        padding: 1.5rem;
+    }
+    
+    .challenge-item {
+        padding: 1rem;
+    }
+    
+    .challenge-item h4 {
+        padding-left: 1.2rem;
+    }
+}
+
+/* Animation for challenge items */
+.challenge-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.challenge-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.challenge-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .link-icon {
     margin-left: 8px;
     fill: currentColor;
@@ -148,8 +307,8 @@
 
 .gallery-image {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height:350px;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 

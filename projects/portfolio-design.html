@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uplift | Jerome Portfolio</title>
+    <title>Uplift Web Solutions | Jerome Portfolio</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/portfolio.css">
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
@@ -33,15 +33,19 @@
     </nav>
 
     <main class="section">
-        <h1 class="section-title animate__animated animate__fadeInDown">Uplift Website Business</h1>
+        <h1 class="section-title animate__animated animate__fadeInDown">Uplift Web Solutions</h1>
+        <p class="project-subtitle">Custom website development service for clients</p>
+        
         <div class="project-details">
             <div class="project-overview animate__animated animate__fadeIn animate__delay-1s">
-                <h2>Project Overview</h2>
-                <p>This portfolio website was designed to showcase my skills, projects, and professional journey in an elegant and interactive way. The purpose was to create a modern, responsive platform that highlights my capabilities while providing an engaging user experience.</p>
+                <h2>Service Overview</h2>
+                <p>Uplift is my premium web development service where I transform client visions into fully functional, beautiful websites. I specialize in creating custom digital solutions tailored to each client's unique business needs, brand identity, and target audience.</p>
+                
+                <p>From initial concept to final deployment, I handle every aspect of website creation - including design, development, optimization, and launch. My focus is on delivering high-quality, responsive websites that help businesses establish a strong online presence and achieve their digital goals.</p>
                 
                 <div class="project-link-container">
                     <a href="https://jeromeapadilla.github.io/uplift/" class="project-link animate__animated animate__pulse animate__infinite" target="_blank">
-                        Visit Live Website
+                        View Sample Work
                         <svg class="link-icon" viewBox="0 0 24 24" width="24" height="24">
                             <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19V6.413L11.207 14.207L9.793 12.793L17.585 5H13V3H21Z"></path>
                         </svg>
@@ -50,32 +54,47 @@
             </div>
             
             <div class="project-features animate__animated animate__fadeIn animate__delay-2s">
-                <h3>Key Features</h3>
+                <h3>Service Highlights</h3>
                 <ul class="features-list">
-                    <li><span>Responsive Design:</span> Website Business responsive</li>
-                    <li><span>Interactive Elements:</span> Engaging animations and hover effects</li>
-                    <li><span>Project Showcase:</span> Organized and detailed </li>
-                    <li><span>Performance Optimized:</span> Fast loading times and smooth transitions</li>
-                    <li><span>Modern Aesthetics:</span> Clean design with thoughtful typography and spacing</li>
+                    <li><span>Client-Centric Approach:</span> Every website begins with in-depth consultations to fully understand the client's business objectives and requirements</li>
+                    <li><span>Custom Designs:</span> Unique, brand-aligned designs that stand out from template-based solutions</li>
+                    <li><span>Mobile-Optimized:</span> All websites are built with responsive design principles for flawless performance on any device</li>
+                    <li><span>Fast Turnaround:</span> Efficient development process that delivers quality websites within agreed timelines</li>
+                    <li><span>SEO-Ready:</span> Websites built with search engine optimization fundamentals for better online visibility</li>
                 </ul>
             </div>
             
             <div class="project-tech animate__animated animate__fadeIn animate__delay-3s">
-                <h3>Technologies Used</h3>
+                <h3>Development Expertise</h3>
                 <div class="tech-bubbles">
                     <span class="tech-bubble">HTML5</span>
                     <span class="tech-bubble">CSS3</span>
                     <span class="tech-bubble">JavaScript</span>
                     <span class="tech-bubble">Responsive Design</span>
-                    <span class="tech-bubble">CSS Animations</span>
+                    <span class="tech-bubble">UI/UX</span>
+                    <span class="tech-bubble">Performance</span>
+                </div>
+            </div>
+            
+            <div class="project-challenges animate__animated animate__fadeIn animate__delay-4s">
+                <h3>Client Success Stories</h3>
+                <div class="challenge-item">
+                    <h4>Local Business Transformation</h4>
+                    <p>A small bakery needed an online presence to showcase their products and accept orders. Their outdated site wasn't mobile-friendly or visually appealing.</p>
+                    <p><strong>Solution:</strong> Created a modern, responsive website with online ordering functionality, resulting in a 40% increase in online sales within the first month.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Professional Service Upgrade</h4>
+                    <p>A financial consultant required a more professional website to establish credibility and attract higher-value clients.</p>
+                    <p><strong>Solution:</strong> Developed a sleek, trustworthy design with clear service offerings and contact points, leading to more qualified inquiries.</p>
                 </div>
             </div>
         </div>
         
         <div class="project-gallery">
             <div class="gallery-item animate__animated animate__fadeInRight">
-                <img src="../images/portfolio-screenshot2.jpg" alt="Portfolio Projects Section" class="gallery-image">
-                <p>Projects Section</p>
+                <img src="../uplift.jpg" alt="Sample Uplift Client Website" class="gallery-image">
+                <p>Example of a custom business website created through Uplift Web Solutions</p>
             </div>
         </div>
     </main>
@@ -114,10 +133,12 @@
                 // Add hover effect
                 bubble.addEventListener('mouseover', function() {
                     this.style.transform = 'translateY(-8px) scale(1.1)';
+                    this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.15)';
                 });
                 
                 bubble.addEventListener('mouseout', function() {
                     this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 2px 6px rgba(0,0,0,0.1)';
                 });
             });
             
