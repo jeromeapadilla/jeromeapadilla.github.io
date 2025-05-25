@@ -22,10 +22,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <script>
-        // Set initial language
-        document.documentElement.lang = localStorage.getItem('language') || 'en';
-    </script>
 </head>
 
 <body>
@@ -51,14 +47,14 @@
             <span class="close-icon">✕</span>
         </button>
         <div class="nav-links">
-            <a href="#about" class="nav-link" data-translate="About">About</a>
-            <a href="#work" class="nav-link" data-translate="Work">Work</a>
-            <a href="#contact" class="nav-link" data-translate="Contact">Contact</a>
-            <a href="./Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank" data-translate="Resume">Resume</a>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="fr">FR</button>
             </div>
+            <a href="#about" class="nav-link" data-translate="About">About</a>
+            <a href="#work" class="nav-link" data-translate="Work">Work</a>
+            <a href="#contact" class="nav-link" data-translate="Contact">Contact</a>
+            <a href="./Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank" data-translate="Resume">Resume</a>
         </div>
     </nav>
 
@@ -121,22 +117,22 @@
         </div>
     </section>
 
-    <!-- About Section -->
+        <!-- About Section -->
     <section class="section about-section" id="about">
         <h2 class="section-title" data-translate="About Me">About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>
-                  I'm <strong>Jerome Padilla</strong>, a passionate <strong>Computer Science student at Vanier College</strong> with a strong interest in both <strong>programming</strong> and <strong>design</strong>. My journey in technology began with <strong>hardware</strong>, repairing and building computers, which naturally evolved into <strong>software development</strong> and <strong>digital design</strong>.
+                <p data-translate="about-text-part1">
+                I'm <strong>Jerome Padilla</strong>, a passionate <strong>Computer Science student at Vanier College</strong> with a strong interest in both <strong>programming</strong> and <strong>design</strong>. My journey in technology began with <strong>hardware</strong>, repairing and building computers, which naturally evolved into <strong>software development</strong> and <strong>digital design</strong>.
                 </p>
-                <p>
-                  I specialize in creating <strong>clean, functional websites</strong> using <strong>modern web technologies</strong>. My technical skills include <strong>HTML, CSS, JavaScript, Python, and Java</strong>. I've developed several projects including a <strong>Java-based train ticketing system</strong> and a <strong>responsive website called Thinkflow</strong>, which helped me develop both my <strong>technical</strong> and <strong>design skills</strong>.
+                <p data-translate="about-text-part2">
+                I specialize in creating <strong>clean, functional websites</strong> using <strong>modern web technologies</strong>. My technical skills include <strong>HTML, CSS, JavaScript, Python, and Java</strong>. I've developed several projects including a <strong>Java-based train ticketing system</strong> and a <strong>responsive website called Thinkflow</strong>, which helped me develop both my <strong>technical</strong> and <strong>design skills</strong>.
                 </p>
-                <p>
-                  Beyond coding, I have experience with <strong>design tools</strong> like <strong>Photoshop, Illustrator, and Canva</strong>. I believe <strong>good design</strong> is as important as good code in creating <strong>exceptional digital experiences</strong>. My approach combines <strong>logical problem-solving</strong> with <strong>creative design thinking</strong>.
+                <p data-translate="about-text-part3">
+                Beyond coding, I have experience with <strong>design tools</strong> like <strong>Photoshop, Illustrator, and Canva</strong>. I believe <strong>good design</strong> is as important as good code in creating <strong>exceptional digital experiences</strong>. My approach combines <strong>logical problem-solving</strong> with <strong>creative design thinking</strong>.
                 </p>
-                <p>
-                  Currently, I'm focused on expanding my knowledge of <strong>programming languages</strong> for <strong>computer science</strong> while continuing to develop my skills. I'm always looking for <strong>new challenges</strong> that allow me to grow as a <strong>developer</strong>.
+                <p data-translate="about-text-part4">
+                Currently, I'm focused on expanding my knowledge of <strong>programming languages</strong> for <strong>computer science</strong> while continuing to develop my skills. I'm always looking for <strong>new challenges</strong> that allow me to grow as a <strong>developer</strong>.
                 </p>
             </div> 
             <div class="about-image">
@@ -261,7 +257,7 @@
 
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
-        <h2 class="section-title" data-translate="Let's Connect">Let's Connect</h2>
+        <h2 class="section-title" data-text="Let's Connect" data-translate="Let's Connect">Let's Connect</h2>
         <p class="contact-text" data-translate="contact-text">
             Whether you're interested in collaborating on a project, have a new idea in mind, or just want to chat, I'm always open to new opportunities.
             I'm currently available for select freelance work and would love to discuss how we can bring your vision to life.
@@ -281,11 +277,11 @@
             <a href="https://github.com/jeromeapadilla" class="footer-link" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/jeromeapadilla/" class="footer-link" target="_blank">LinkedIn</a>
         </div>
-        <p class="copyright">© 2025 Jerome Padilla. <span data-translate="All rights reserved">All rights reserved</span>.</p>
+        <p class="copyright">© 2025 Jerome Padilla. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript -->
-    <script src="./js/translation.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/translation.js"></script>
 </body>
 </html>
