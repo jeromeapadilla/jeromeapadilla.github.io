@@ -22,6 +22,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
+    <script>
+        // Set initial language
+        document.documentElement.lang = localStorage.getItem('language') || 'en';
+    </script>
 </head>
 
 <body>
@@ -47,20 +51,23 @@
             <span class="close-icon">✕</span>
         </button>
         <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="./Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank">Resume</a>
+            <a href="#about" class="nav-link" data-translate="About">About</a>
+            <a href="#work" class="nav-link" data-translate="Work">Work</a>
+            <a href="#contact" class="nav-link" data-translate="Contact">Contact</a>
+            <a href="./Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank" data-translate="Resume">Resume</a>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
         </div>
     </nav>
 
-      
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <p class="hero-subtitle">Programmer | Graphic Designer | Multimedia</p>
-            <h1 class="hero-title">Coding and Creativity</h1>
-            <p class="hero-description">
+            <p class="hero-subtitle" data-translate="Programmer | Graphic Designer | Multimedia">Programmer | Graphic Designer | Multimedia</p>
+            <h1 class="hero-title" data-translate="Coding and Creativity">Coding and Creativity</h1>
+            <p class="hero-description" data-translate="hero-description">
                 <strong>Aspiring Computer Science student</strong> passionate about technology, design, and problem-solving.
                 studied at <strong>Vanier College</strong> with a focus on <strong>web development</strong>, <strong>programming</strong>, and <strong>digital design</strong>.
               
@@ -74,23 +81,23 @@
             </p>              
 
         <div class="skills-container">
-            <h3>Technical Skills</h3>
+            <h3 data-translate="Technical Skills">Technical Skills</h3>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h4>Web Development</h4>
+                    <h4 data-translate="Web Development">Web Development</h4>
                     <br>
                     <div class="skill" data-skill="HTML" data-level="90"></div>
                     <div class="skill" data-skill="CSS" data-level="90"></div>
                     <div class="skill" data-skill="JavaScript" data-level="90"></div>
                 </div>
                 <div class="skill-category">
-                    <h4>Programming</h4>
+                    <h4 data-translate="Programming">Programming</h4>
                     <br>
                     <div class="skill" data-skill="Python" data-level="75"></div>
                     <div class="skill" data-skill="Java" data-level="80"></div>
                 </div>
                 <div class="skill-category">
-                    <h4>Design Tools</h4>
+                    <h4 data-translate="Design Tools">Design Tools</h4>
                     <br>
                     <div class="skill" data-skill="Photoshop" data-level="90"></div>
                     <div class="skill" data-skill="Illustrator" data-level="90"></div>
@@ -99,7 +106,7 @@
             </div>
         </div>
 
-            <a href="#work" class="btn">View Projects</a>
+            <a href="#work" class="btn" data-translate="View Projects">View Projects</a>
             <div class="social-links">
                 <a href="https://www.github.com/jeromeapadilla" class="social-link" target="_blank">
                     <i class="fab fa-github"></i>
@@ -116,7 +123,7 @@
 
     <!-- About Section -->
     <section class="section about-section" id="about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-translate="About Me">About Me</h2>
         <div class="about-content">
             <div class="about-text">
                 <p>
@@ -138,38 +145,38 @@
         </div>
     </section>
 
-    <!-- Add above projects section -->
+    <!-- Project Filters -->
     <div class="project-filters">
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">
-                <span>All</span>
+                <span data-translate="All">All</span>
                 <div class="filter-indicator"></div>
             </button>
             <button class="filter-btn" data-filter="web">
-                <span>Web</span>
+                <span data-translate="Web">Web</span>
                 <div class="filter-indicator"></div>
             </button>
             <button class="filter-btn" data-filter="programming">
-                <span>Programming</span>
+                <span data-translate="Programming">Programming</span>
                 <div class="filter-indicator"></div>
             </button>
             <button class="filter-btn" data-filter="design">
-                <span>Design</span>
+                <span data-translate="Design">Design</span>
                 <div class="filter-indicator"></div>
             </button>
         </div>
         <div class="filter-counter">
-            <span class="active-count">0</span>/<span class="total-count">0</span> projects
+            <span class="active-count">0</span>/<span class="total-count">0</span> <span data-translate="projects">projects</span>
         </div>
     </div>
 
     <!-- Projects Section -->
     <section class="section" id="work">
-        <h2 class="section-title">My Work</h2>
+        <h2 class="section-title" data-translate="My Work">My Work</h2>
         
         <!-- Web Development Projects -->
         <div class="project-category">
-            <h3 class="category-title">Web Development</h3>
+            <h3 class="category-title" data-translate="Web Development">Web Development</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <a href="https://jerome11.582mi.com/think_flow/index.html" class="project-card-link web">
@@ -177,7 +184,7 @@
                         <img src="./images/logo.png" alt="Thinkflow Website" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
                             <h3 class="project-title">Thinkflow Website</h3>
-                            <p class="project-category">Responsive Website</p>
+                            <p class="project-category" data-translate="Responsive Website">Responsive Website</p>
                         </div>
                     </div>
                 </a>
@@ -188,7 +195,7 @@
                         <img src="./uplift.jpg" alt="Portfolio Design" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
                             <h3 class="project-title">Uplift Business Website</h3>
-                            <p class="project-category">Web Design</p>
+                            <p class="project-category" data-translate="Web Design">Web Design</p>
                         </div>
                     </div>
                 </a>
@@ -197,7 +204,7 @@
         
         <!-- Programming Projects -->
         <div class="project-category">
-            <h3 class="category-title">Programming</h3>
+            <h3 class="category-title" data-translate="Programming">Programming</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <a href="projects/train-ticketing.html" class="project-card-link programming">
@@ -205,7 +212,7 @@
                         <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Train Ticketing System" class="project-image">
                         <div class="project-info">
                             <h3 class="project-title">Train Ticketing System</h3>
-                            <p class="project-category">Java Application</p>
+                            <p class="project-category" data-translate="Java Application">Java Application</p>
                         </div>
                     </div>
                 </a>
@@ -216,7 +223,7 @@
                         <img src="./images/16884844862.png" alt="Python Project" class="project-image">
                         <div class="project-info">
                             <h3 class="project-title">Python Data Analysis</h3>
-                            <p class="project-category">Python Script</p>
+                            <p class="project-category" data-translate="Python Script">Python Script</p>
                         </div>
                     </div>
                 </a>
@@ -225,7 +232,7 @@
         
         <!-- Graphic Design Projects -->
         <div class="project-category">
-            <h3 class="category-title">Graphic Design</h3>
+            <h3 class="category-title" data-translate="Graphic Design">Graphic Design</h3>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <a href="projects/ui-components.html" class="project-card-link design">
@@ -233,7 +240,7 @@
                         <img src="./images/16884844862.png" alt="UI Components" class="project-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
                         <div class="project-info">
                             <h3 class="project-title">UI Components</h3>
-                            <p class="project-category">Design System</p>
+                            <p class="project-category" data-translate="Design System">Design System</p>
                         </div>
                     </div>
                 </a>
@@ -244,7 +251,7 @@
                         <img src="./images/16884844862.png" alt="Brand Identity" class="project-image">
                         <div class="project-info">
                             <h3 class="project-title">Brand Identity</h3>
-                            <p class="project-category">Logo & Branding</p>
+                            <p class="project-category" data-translate="Logo & Branding">Logo & Branding</p>
                         </div>
                     </div>
                 </a>
@@ -254,30 +261,31 @@
 
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
-        <h2 class="section-title" data-text="Let's Connect">Let's Connect</h2>
-        <p class="contact-text">
+        <h2 class="section-title" data-translate="Let's Connect">Let's Connect</h2>
+        <p class="contact-text" data-translate="contact-text">
             Whether you're interested in collaborating on a project, have a new idea in mind, or just want to chat, I'm always open to new opportunities.
             I'm currently available for select freelance work and would love to discuss how we can bring your vision to life.
         </p>
         <div class="contact-actions">
             <a href="mailto:jeromeapadilla@gmail.com" class="email-link">jeromeapadilla@gmail.com</a>
-            <a href="./Jerome Padilla Resume.pdf" class="btn resume-btn" target="_blank">View Full Resume</a>
+            <a href="./Jerome Padilla Resume.pdf" class="btn resume-btn" target="_blank" data-translate="View Full Resume">View Full Resume</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
-            <a href="#about" class="footer-link">About</a>
-            <a href="#work" class="footer-link">Work</a>
-            <a href="#contact" class="footer-link">Contact</a>
+            <a href="#about" class="footer-link" data-translate="About">About</a>
+            <a href="#work" class="footer-link" data-translate="Work">Work</a>
+            <a href="#contact" class="footer-link" data-translate="Contact">Contact</a>
             <a href="https://github.com/jeromeapadilla" class="footer-link" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/jeromeapadilla/" class="footer-link" target="_blank">LinkedIn</a>
         </div>
-        <p class="copyright">© 2025 Jerome Padilla. All rights reserved.</p>
+        <p class="copyright">© 2025 Jerome Padilla. <span data-translate="All rights reserved">All rights reserved</span>.</p>
     </footer>
 
     <!-- JavaScript -->
+    <script src="./js/translation.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

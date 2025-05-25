@@ -29,6 +29,38 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--black);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.lang-btn.active {
+    color: var(--white);
+    background: var(--black);
+}
+
+.lang-btn:not(.active):hover {
+    background: rgba(17, 17, 17, 0.1);
+}
+
+
 /* Add to your floating elements */
 .floating-element {
     animation: wave 12s infinite ease-in-out;
@@ -514,6 +546,138 @@ a {
 
 .social-link:hover {
     animation: bounce 0.5s ease, floatSocial 3s ease-in-out infinite;
+}
+
+
+/* Enhanced Button Styles with Animations */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-weight: 500;
+    border: 1px solid var(--black);
+    transition: all 0.4s var(--transition);
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 180px; /* Ensures consistent width for both languages */
+    text-align: center;
+}
+
+/* Base hover effect */
+.btn:hover {
+    background-color: var(--black);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.15);
+}
+
+/* Ripple effect animation */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+    transition: all 0.6s var(--transition);
+    z-index: -1;
+}
+
+.btn:hover::after {
+    transform: scale(30, 30);
+    opacity: 1;
+}
+
+/* Language-specific adjustments */
+[lang="fr"] .btn {
+    padding: 0.9rem 2.4rem; /* Slightly wider for French text */
+    letter-spacing: 0.5px; /* Better spacing for French */
+}
+
+/* Pulse animation for both languages */
+@keyframes btnPulse {
+    0%, 100% {
+        transform: translateY(-3px) scale(1);
+        box-shadow: 0 10px 20px rgba(17, 17, 17, 0.15);
+    }
+    50% {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 15px 25px rgba(17, 17, 17, 0.2);
+    }
+}
+
+.btn:hover {
+    animation: btnPulse 2s infinite ease-in-out;
+}
+
+/* Click animation */
+.btn:active {
+    transform: translateY(-1px);
+    transition: transform 0.1s ease;
+}
+
+/* Special animation for View Projects button */
+[data-translate="View Projects"].btn,
+[data-translate="Voir les Projets"].btn {
+    position: relative;
+}
+
+[data-translate="View Projects"].btn::before,
+[data-translate="Voir les Projets"].btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid var(--black);
+    border-radius: inherit;
+    animation: btnBorderPulse 3s infinite linear;
+    opacity: 0;
+}
+
+@keyframes btnBorderPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+[data-translate="View Projects"].btn:hover::before,
+[data-translate="Voir les Projets"].btn:hover::before {
+    animation: btnBorderPulse 3s infinite linear;
+}
+
+/* Resume button specific styling */
+.resume-btn {
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.resume-btn::after {
+    content: '→';
+    position: absolute;
+    right: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.resume-btn:hover::after {
+    right: 1rem;
+    opacity: 1;
 }
 
 @keyframes bounce {
@@ -1080,6 +1244,11 @@ a {
 @media (max-width: 769px) {
     :root {
         --section-padding: 1rem;
+    }
+
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 2rem;
     }
 
     .navbar {

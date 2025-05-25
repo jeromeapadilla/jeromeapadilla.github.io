@@ -199,6 +199,95 @@ function setupProjectFilters() {
     }
 }
 
+// Language switching functionality
+function setupLanguageSwitching() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const htmlElement = document.documentElement;
+    
+    // Set initial language from localStorage or default to English
+    const currentLang = localStorage.getItem('language') || 'en';
+    htmlElement.lang = currentLang;
+    
+    // Update button states
+    langButtons.forEach(btn => {
+        if (btn.dataset.lang === currentLang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Translate the page
+    translatePage(currentLang);
+    
+    // Add click handlers
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const newLang = this.dataset.lang;
+            if (newLang === currentLang) return;
+            
+            // Update UI
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Save preference
+            localStorage.setItem('language', newLang);
+            htmlElement.lang = newLang;
+            
+            // Translate the page
+            translatePage(newLang);
+        });
+    });
+}
+
+function translatePage(lang) {
+    // Get all elements with data-translate attribute
+    const elements = document.querySelectorAll('[data-translate]');
+    
+    elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+    
+    // Special cases for elements without data-translate
+    const specialElements = {
+        'hero-subtitle': 'Programmer | Graphic Designer | Multimedia',
+        'hero-title': 'Coding and Creativity',
+        '.hero-description': 'hero-description',
+        '.skills-container h3': 'Technical Skills',
+        '.skill-category h4': ['Web Development', 'Programming', 'Design Tools'],
+        '.btn': 'View Projects',
+        '.section-title': ['About Me', 'My Work', 'Let\'s Connect'],
+        '.category-title': ['Web Development', 'Programming', 'Graphic Design'],
+        '.contact-text': 'contact-text',
+        '.nav-link': ['About', 'Work', 'Contact', 'Resume']
+    };
+    
+    // Handle these special cases
+    for (const selector in specialElements) {
+        const elements = document.querySelectorAll(selector);
+        const translationKey = specialElements[selector];
+        
+        elements.forEach((el, index) => {
+            let key;
+            if (Array.isArray(translationKey)) {
+                key = translationKey[index];
+            } else {
+                key = translationKey;
+            }
+            
+            if (translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+    }
+}
+
+// Call this when DOM is loaded
+document.addEventListener('DOMContentLoaded', setupLanguageSwitching);  
+
 // Call this function when DOM is loaded
 document.addEventListener('DOMContentLoaded', setupProjectFilters);
 
