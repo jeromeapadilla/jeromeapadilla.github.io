@@ -106,4 +106,4 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 // Check for saved language preference
 const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-translatePage(savedLang);
+translatePage(savedLang);   

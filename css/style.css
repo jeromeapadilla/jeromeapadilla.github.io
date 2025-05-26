@@ -60,7 +60,6 @@ body {
     background: rgba(17, 17, 17, 0.1);
 }
 
-
 /* Add to your floating elements */
 .floating-element {
     animation: wave 12s infinite ease-in-out;
