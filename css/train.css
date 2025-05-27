@@ -1,24 +1,46 @@
-/* Project Details Styles */
-.project-details {
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes floatBubble {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Base Styles */
+  .project-details {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
     background-color: rgba(248, 248, 248, 0.7);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.project-overview h2, 
-.project-features h3, 
-.project-tech h3 {
+  }
+  
+  /* Headings */
+  .project-overview h2,
+  .project-features h3,
+  .project-tech h3 {
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
-}
-
-.project-overview h2::after,
-.project-features h3::after,
-.project-tech h3::after {
+  }
+  
+  .project-overview h2::after,
+  .project-features h3::after,
+  .project-tech h3::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -27,22 +49,24 @@
     height: 3px;
     background-color: var(--category-programming);
     transition: width 0.3s ease;
-}
-
-.project-overview h2:hover::after,
-.project-features h3:hover::after,
-.project-tech h3:hover::after {
+  }
+  
+  .project-overview h2:hover::after,
+  .project-features h3:hover::after,
+  .project-tech h3:hover::after {
     width: 100%;
-}
-
-.project-overview p {
+  }
+  
+  /* Text Content */
+  .project-overview p {
     margin-bottom: 2rem;
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(17, 17, 17, 0.8);
-}
-
-.project-subtitle {
+  }
+  
+  /* Subtitle */
+  .project-subtitle {
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--category-programming);
@@ -52,9 +76,10 @@
     position: relative;
     padding-bottom: 1rem;
     line-height: 1.5;
-}
-
-.project-subtitle::after {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
+  .project-subtitle::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -64,178 +89,118 @@
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--category-programming), transparent);
     opacity: 0.7;
-}
-
-/* Client Success Stories Section */
-.project-challenges {
+  }
+  
+  /* Challenges Section */
+  .project-challenges {
     margin: 3rem 0;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: var(--border-radius);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     border-left: 4px solid var(--category-programming);
-}
-
-.project-challenges h3 {
+  }
+  
+  .project-challenges h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: var(--category-programming);
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.project-challenges h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: rgba(58, 12, 163, 0.3);
-}
-
-.challenge-item {
+  }
+  
+  .challenge-item {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 1px solid rgba(58, 12, 163, 0.1);
-}
-
-.challenge-item:hover {
+  }
+  
+  .challenge-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(58, 12, 163, 0.1);
-}
-
-.challenge-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #333;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.challenge-item h4::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--category-programming);
-    font-weight: bold;
-}
-
-.challenge-item p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-.challenge-item p strong {
-    color: var(--category-programming);
-    font-weight: 600;
-}
-
-.features-list {
+  }
+  
+  /* Features List */
+  .features-list {
     list-style-type: none;
     margin: 2rem 0;
     padding: 0;
-}
-
-.features-list li {
+  }
+  
+  .features-list li {
     padding: 0.8rem 0;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-}
-
-.features-list li:last-child {
+  }
+  
+  .features-list li:last-child {
     border-bottom: none;
-}
-
-.features-list span {
+  }
+  
+  .features-list span {
     font-weight: 600;
     color: var(--category-programming);
     margin-right: 10px;
     min-width: 150px;
-}
-
-.tech-bubbles {
+  }
+  
+  /* Tech Bubbles */
+  .tech-bubbles {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin: 2rem 0;
-}
-
-.tech-bubble {
+  }
+  
+  .tech-bubble {
     padding: 0.6rem 1.2rem;
     background-color: white;
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: 500;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     animation: floatBubble 4s ease-in-out infinite;
-    cursor: default;
-}
-
-@keyframes floatBubble {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-.project-gallery {
+  }
+  
+  /* Gallery */
+  .project-gallery {
     margin-top: 4rem;
-}
-
-.project-gallery h3 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.gallery-grid {
+  }
+  
+  .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-}
-
-.gallery-item {
+  }
+  
+  .gallery-item {
     background: white;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-10px);
-}
-
-.gallery-image {
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .gallery-image {
     width: 100%;
     height: 200px;
     object-fit: contain;
     transition: transform 0.5s ease;
     cursor: zoom-in;
-}
-
-.gallery-item:hover .gallery-image {
+  }
+  
+  .gallery-item:hover .gallery-image {
     transform: scale(1.05);
-}
-
-.gallery-item p {
-    padding: 1rem;
-    text-align: center;
-    font-weight: 500;
-    color: rgba(17, 17, 17, 0.8);
-}
-
-/* Lightbox Styles */
-.lightbox {
+  }
+  
+  /* Lightbox */
+  .lightbox {
     display: none;
     position: fixed;
     top: 0;
@@ -248,22 +213,21 @@
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.lightbox.active {
+  }
+  
+  .lightbox.active {
     display: flex;
     opacity: 1;
-}
-
-.lightbox-image {
+  }
+  
+  .lightbox-image {
     max-width: 90%;
     max-height: 80vh;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-}
-
-.lightbox-caption {
+  }
+  
+  .lightbox-caption {
     position: absolute;
     bottom: 30px;
     color: white;
@@ -271,10 +235,9 @@
     text-align: center;
     width: 100%;
     padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.close-lightbox {
+  }
+  
+  .close-lightbox {
     position: absolute;
     top: 30px;
     right: 30px;
@@ -282,14 +245,13 @@
     font-size: 3rem;
     cursor: pointer;
     transition: transform 0.3s ease;
-    z-index: 1001;
-}
-
-.close-lightbox:hover {
+  }
+  
+  .close-lightbox:hover {
     transform: scale(1.2);
-}
-
-.lightbox-nav {
+  }
+  
+  .lightbox-nav {
     position: absolute;
     width: 100%;
     display: flex;
@@ -298,10 +260,9 @@
     box-sizing: border-box;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1001;
-}
-
-.lightbox-arrow {
+  }
+  
+  .lightbox-arrow {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
@@ -310,71 +271,99 @@
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.3s ease;
-}
-
-.lightbox-arrow:hover {
+  }
+  
+  .lightbox-arrow:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
     .project-details {
-        padding: 1.5rem;
+      padding: 1.5rem;
     }
     
     .features-list li {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
     
     .features-list span {
-        margin-bottom: 5px;
+      margin-bottom: 5px;
     }
     
     .tech-bubbles {
-        justify-content: center;
+      justify-content: center;
     }
     
     .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-subtitle {
-        font-size: 1.1rem;
-        padding: 0 1rem 1rem;
-    }
-    
-    .project-challenges {
-        padding: 1.5rem;
-    }
-    
-    .challenge-item {
-        padding: 1rem;
-    }
-    
-    .challenge-item h4 {
-        padding-left: 1.2rem;
+      grid-template-columns: 1fr;
     }
     
     .lightbox-arrow {
-        width: 50px;
-        height: 50px;
-        font-size: 2rem;
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
     }
     
     .close-lightbox {
-        top: 20px;
-        right: 20px;
-        font-size: 2.5rem;
+      top: 20px;
+      right: 20px;
+      font-size: 2.5rem;
     }
-    
+  }
+  
+  /* Scroll Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/* Add these styles to your existing lightbox CSS */
+.lightbox-arrow {
+    /* Existing styles */
+    position: fixed;
+    bottom: 20px;
+    top: auto;
+    transform: none;
+  }
+  
+  #prev-arrow {
+    left: 20px;
+  }
+  
+  #next-arrow {
+    right: 20px;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .lightbox-nav {
+      bottom: 20px;
+      top: auto;
+      transform: none;
+      justify-content: center;
+      gap: 2rem;
+    }
+  
+    .lightbox-arrow {
+      position: static;
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.3);
+    }
+  
     .lightbox-caption {
-        font-size: 1rem;
-        bottom: 20px;
+      bottom: 100px; /* Make room for arrows */
     }
-}
+  }
