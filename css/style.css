@@ -51,6 +51,105 @@ body {
     position: relative;
 }
 
+/* Progress Section Styles */
+.progress-section {
+    background-color: var(--gray);
+}
+
+.progress-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.progress-category {
+    margin-bottom: 3rem;
+}
+
+.progress-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--category-programming);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.progress-category h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--category-programming);
+    border-radius: 50%;
+}
+
+.log-entry {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.log-entry::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(58, 12, 163, 0.1);
+}
+
+.log-date {
+    min-width: 100px;
+    font-weight: 500;
+    color: rgba(17, 17, 17, 0.7);
+    padding-right: 1.5rem;
+}
+
+.log-content {
+    flex: 1;
+}
+
+.log-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.log-content p {
+    margin-bottom: 1rem;
+    color: rgba(17, 17, 17, 0.8);
+}
+
+.progress-bar {
+    height: 50rem;
+    background-color: rgba(58, 12, 163, 0.1);
+    border-radius: 4px;
+    position: relative;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--category-programming), rgba(58, 12, 163, 0.7));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.progress-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+
 .lang-btn.active {
     color: var(--white);
     background: var(--black);
@@ -850,6 +949,14 @@ a {
     animation: floatImage 6s ease-in-out infinite;
 }
 
+
+.section-progress {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    display: block;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
@@ -858,16 +965,64 @@ a {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make all cards equal height */
     border-radius: var(--border-radius);
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+ /* Progress Bar Styles */
+ .project-progress {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Progress Bars - Unified Styling */
+.progress-bar {
+    height: 8px;
+    background-color: rgba(58, 12, 163, 0.1);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--black);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Category-specific progress bars */
+.project-card-link.web .progress-fill {
+    background: var(--category-web);
+}
+
+.project-card-link.programming .progress-fill {
+    background: var(--category-programming);
+}
+
+.project-card-link.design .progress-fill {
+    background: var(--category-design);
+}
+
 
 /* Category-specific card accents */
 .project-category:nth-child(1) .project-card {
@@ -907,11 +1062,9 @@ a {
 
 .project-info {
     padding: 1.5rem;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-grow: 1; /* Allow content to expand */
 }
 
 .project-title {
@@ -1072,6 +1225,15 @@ a {
         display: none;
     }
 
+    .log-entry {
+        flex-direction: column;
+        padding-left: 1.5rem;
+    }
+    
+    .log-date {
+        padding-bottom: 0.5rem;
+    }
+   
     .nav-links {
         position: fixed;
         top: 0;
@@ -1101,6 +1263,7 @@ a {
     .menu-toggle.active .close-icon {
         display: block;
     }
+
 
     /* Hero Section */
     .hero-section {

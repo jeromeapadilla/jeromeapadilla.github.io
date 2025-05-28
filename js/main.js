@@ -320,3 +320,33 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.project-card').forEach(card => {
     observer.observe(card);
 });
+
+// Add this to your existing JavaScript
+function initializeProgressBars() {
+    document.querySelectorAll('.progress-fill').forEach(bar => {
+        // Get the width from the style attribute
+        const targetWidth = bar.getAttribute('style')?.match(/width:\s*(\d+%)/)?.[1] || '0%';
+        
+        // Reset to 0 for animation
+        bar.style.width = '0';
+        
+        // Animate to target width
+        setTimeout(() => {
+            bar.style.width = targetWidth;
+        }, 100);
+    });
+}
+
+// Call this when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeProgressBars();
+    
+    // Also initialize when filtering projects
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Wait for filter animation to complete
+            setTimeout(initializeProgressBars, 500);
+        });
+    });
+});
