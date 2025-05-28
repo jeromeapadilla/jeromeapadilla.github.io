@@ -2,7 +2,7 @@
 const translations = {
     en: {
         "Programmer | Graphic Designer | Multimedia": "Programmer | Graphic Designer | Multimedia",
-        "Coding and Creativity": "Coding and Creativity",
+        "Build. Create. Innovate.": "Coding and Creativity",
         "hero-description": "<strong>Aspiring Computer Science student</strong> passionate about technology, design, and problem-solving. studied at <strong>Vanier College</strong> with a focus on <strong>web development</strong>, <strong>programming</strong>, and <strong>digital design</strong>. I design and build <strong>responsive</strong>, <strong>user-friendly websites</strong> using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, while strengthening my programming skills in <strong>Python</strong> and <strong>Java</strong>. I also create interface designs and visual content using tools like <strong>Photoshop</strong>, <strong>Illustrator</strong>, and <strong>Canva</strong> —believing that strong design plays a key role in creating impactful digital experiences. My goal is to merge clean, purposeful design with <strong>functional</strong>, <strong>efficient code</strong> to build innovative, user-centered solutions. Above all, I have a deep love for <strong>programming</strong> and am always eager to <strong>learn</strong> and <strong>grow</strong>.",
         "Technical Skills": "Technical Skills",
         "Web Development": "Web Development",
@@ -37,7 +37,7 @@ const translations = {
     },
     fr: {
         "Programmer | Graphic Designer | Multimedia": "Programmeur | Designer Graphique | Multimédia",
-        "Coding and Creativity": "Codage et Créativité",
+        "Build. Create. Innovate.": "Construire. Créer. Innover.",
         "hero-description": "<strong>Étudiant en informatique</strong> passionné par la technologie, le design et la résolution de problèmes. J'ai étudié au <strong>Collège Vanier</strong> avec une spécialisation en <strong>développement web</strong>, <strong>programmation</strong> et <strong>design numérique</strong>. Je conçois et construis des sites web <strong>réactifs</strong> et <strong>conviviaux</strong> en utilisant <strong>HTML</strong>, <strong>CSS</strong> et <strong>JavaScript</strong>, tout en renforçant mes compétences en programmation avec <strong>Python</strong> et <strong>Java</strong>. Je crée également des interfaces et du contenu visuel avec des outils comme <strong>Photoshop</strong>, <strong>Illustrator</strong> et <strong>Canva</strong>, convaincu qu'un bon design joue un rôle clé dans la création d'expériences numériques marquantes. Mon objectif est d'allier un design épuré et intentionnel à un code <strong>fonctionnel</strong> et <strong>efficace</strong> pour créer des solutions innovantes centrées sur l'utilisateur. Par-dessus tout, j'ai une passion profonde pour la <strong>programmation</strong> et je suis toujours désireux d'<strong>apprendre</strong> et de <strong>progresser</strong>.",
         "Technical Skills": "Compétences Techniques",
         "Web Development": "Développement Web",
