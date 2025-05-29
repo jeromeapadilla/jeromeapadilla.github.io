@@ -260,8 +260,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--black);
+    font-weight: 900;
+    color: var(--category-design);
 }
 
 
