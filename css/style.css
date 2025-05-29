@@ -261,7 +261,7 @@ body {
     transform: translateY(-50%);
     font-size: 0.7rem;
     font-weight: 900;
-    color: var(--category-design);
+    color: var(--black);
 }
 
 
