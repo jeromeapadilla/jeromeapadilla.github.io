@@ -359,3 +359,55 @@ function initializeProgressLogs() {
         });
     });
 }
+
+// Deadline:
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Countdown functionality
+const countdownElements = document.querySelectorAll('.countdown');
+    
+countdownElements.forEach(element => {
+    const deadline = new Date(element.getAttribute('data-deadline'));
+    const now = new Date();
+    const diffTime = deadline - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays > 0) {
+        element.textContent = `${deadline.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} (${diffDays} days remaining)`;
+        
+        // Add urgency styles
+        if (diffDays <= 7) {
+            element.classList.add('deadline-near');
+        } else if (diffDays <= 30) {
+            element.classList.add('deadline-far');
+        }
+    } else {
+        element.textContent = deadline.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric' 
+        });
+        element.style.color = '#95a5a6';
+        element.style.background = 'rgba(149, 165, 166, 0.1)';
+    }
+});
+    
+    // Animate progress bars on scroll
+    const progressBars = document.querySelectorAll('.progress-fill');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetWidth = entry.target.style.width;
+                entry.target.style.width = '0';
+                setTimeout(() => {
+                    entry.target.style.width = targetWidth;
+                }, 300);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    progressBars.forEach(bar => {
+        observer.observe(bar);
+    });
+});

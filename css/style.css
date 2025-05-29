@@ -261,7 +261,7 @@ body {
     transform: translateY(-50%);
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--white);
+    color: var(--black);
 }
 
 
@@ -909,6 +909,61 @@ a {
     50% {
         transform: translateY(-8px);
     }
+}
+
+/* Progress Deadlines */
+
+.deadline-container, .completion-container {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.deadline-label, .completion-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: rgba(17, 17, 17, 0.8);
+}
+
+.deadline-date, .completion-date {
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(58, 12, 163, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+.countdown {
+    position: relative;
+}
+
+.countdown::after {
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 rgba(67, 97, 238, 0); }
+    50% { box-shadow: 0 0 8px rgba(67, 97, 238, 0.4); }
+}
+
+.deadline-near {
+    animation: pulse-glow 2s infinite, shake 0.5s ease;
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.deadline-far {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
 }
 
 /* Sections */
