@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const navLinks = document.querySelector('.nav-links');
+            const toggleButton = document.querySelector('.menu-toggle');
+            
             // Close mobile menu if open
             if (navLinks && navLinks.classList.contains('active')) {
                 toggleButton.classList.remove("active");
@@ -60,38 +62,36 @@ document.addEventListener("DOMContentLoaded", function() {
             link.style.animation = `floatSocial 3s ease-in-out ${index * 0.2}s infinite`;
         }, 1000);
     });
-});
 
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Menu toggle functionality
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     
-    menuToggle.addEventListener('click', function() {
-        // Toggle the active class on both the button and the menu
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Toggle body overflow when menu is open
-        if (navLinks.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Close menu when clicking on a nav link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            // Toggle the active class on both the button and the menu
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Toggle body overflow when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
-    });
-});
+        
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
-// Add to main.js
-document.addEventListener('DOMContentLoaded', function() {
+    // Cursor trailer effect
     const cursorTrailer = document.createElement('div');
     cursorTrailer.classList.add('cursor-trailer');
     document.body.appendChild(cursorTrailer);
@@ -100,25 +100,35 @@ document.addEventListener('DOMContentLoaded', function() {
         cursorTrailer.style.left = `${e.pageX}px`;
         cursorTrailer.style.top = `${e.pageY}px`;
     });
+
+    // Project card hover effects
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.boxShadow = '0 0 20px rgba(112, 133, 227, 0.3)';
+            card.style.transition = 'box-shadow 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.boxShadow = '';
+        });
+    });
+
+    // Initialize all functionality
+    setupProjectFilters();
+    setupLanguageSwitching();
+    initializeSkillBars();
+    animateProgressBarsOnScroll();
+    initializeProgressLogs();
 });
 
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.boxShadow = '0 0 20px rgba(112, 133, 227, 0.3)';
-        card.style.transition = 'box-shadow 0.3s ease';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.boxShadow = '';
-    });
-});
-
-// Enhanced filtering functionality
+// Project filtering functionality
 function setupProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card-link');
     const activeCountElement = document.querySelector('.active-count');
     const totalCountElement = document.querySelector('.total-count');
+
+    if (!filterButtons.length || !projectCards.length) return;
 
     // Set total count
     totalCountElement.textContent = projectCards.length;
@@ -127,7 +137,7 @@ function setupProjectFilters() {
     updateActiveCount('all');
 
     filterButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', function() {
             const filter = this.dataset.filter;
 
             // Update active button
@@ -203,6 +213,8 @@ function setupProjectFilters() {
 function setupLanguageSwitching() {
     const langButtons = document.querySelectorAll('.lang-btn');
     const htmlElement = document.documentElement;
+    
+    if (!langButtons.length) return;
     
     // Set initial language from localStorage or default to English
     const currentLang = localStorage.getItem('language') || 'en';
@@ -285,83 +297,50 @@ function translatePage(lang) {
     }
 }
 
-// Call this when DOM is loaded
-document.addEventListener('DOMContentLoaded', setupLanguageSwitching);  
-
-// Call this function when DOM is loaded
-document.addEventListener('DOMContentLoaded', setupProjectFilters);
-
-
-// Add this to your existing DOMContentLoaded event listener
-document.querySelectorAll('.skill').forEach(skill => {
-    const level = skill.getAttribute('data-level');
-    skill.style.setProperty('--skill-level', `${level}%`);
-    
-    // Create the progress bar element
-    const progressBar = document.createElement('div');
-    progressBar.className = 'skill-progress';
-    skill.appendChild(progressBar);
-    
-    // Animate it
-    setTimeout(() => {
-        progressBar.style.width = `${level}%`;
-    }, 100);
-});
-
-// Add this to your main.js
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.project-card').forEach(card => {
-    observer.observe(card);
-});
-
-// Add this to your existing JavaScript
-function initializeProgressBars() {
-    document.querySelectorAll('.progress-fill').forEach(bar => {
-        // Get the width from the style attribute
-        const targetWidth = bar.getAttribute('style')?.match(/width:\s*(\d+%)/)?.[1] || '0%';
+// Skill bars initialization
+function initializeSkillBars() {
+    document.querySelectorAll('.skill').forEach(skill => {
+        const level = skill.getAttribute('data-level');
+        skill.style.setProperty('--skill-level', `${level}%`);
         
-        // Reset to 0 for animation
-        bar.style.width = '0';
+        // Create the progress bar element
+        const progressBar = document.createElement('div');
+        progressBar.className = 'skill-progress';
+        skill.appendChild(progressBar);
         
-        // Animate to target width
+        // Animate it
         setTimeout(() => {
-            bar.style.width = targetWidth;
+            progressBar.style.width = `${level}%`;
         }, 100);
     });
 }
 
-// Call this when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initializeProgressBars();
+// Progress bars in learning section
+function animateProgressBarsOnScroll() {
+    const progressBars = document.querySelectorAll('.progress-fill');
     
-    // Also initialize when filtering projects
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Wait for filter animation to complete
-            setTimeout(initializeProgressBars, 500);
+    if (!progressBars.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetWidth = entry.target.style.width;
+                entry.target.style.width = '0';
+                setTimeout(() => {
+                    entry.target.style.width = targetWidth;
+                }, 100);
+                observer.unobserve(entry.target);
+            }
         });
-    });
-});
+    }, { threshold: 0.1 });
 
-// Add this to your main.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Animate progress bars
-    document.querySelectorAll('.animate-progress').forEach(bar => {
-        const targetWidth = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = targetWidth;
-        }, 300);
+    progressBars.forEach(bar => {
+        observer.observe(bar);
     });
+}
 
+// Initialize progress logs animation
+function initializeProgressLogs() {
     // Animate log entries
     const logEntries = document.querySelectorAll('.log-entry');
     logEntries.forEach((entry, index) => {
@@ -379,4 +358,4 @@ document.addEventListener('DOMContentLoaded', function() {
             badge.style.transform = 'scale(1)';
         });
     });
-});
+}

@@ -239,7 +239,7 @@ body {
 }
 
 .progress-bar {
-    height: 50rem;
+    height: 8px;
     background-color: rgba(58, 12, 163, 0.1);
     border-radius: 4px;
     position: relative;
@@ -1097,33 +1097,6 @@ a {
     margin-top: 1rem;
 }
 
-/* Progress Bars - Unified Styling */
-.progress-bar {
-    height: 8px;
-    background-color: rgba(58, 12, 163, 0.1);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-.progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.5s ease;
-    position: relative;
-}
-
-.progress-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--black);
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-}
 
 /* Category-specific progress bars */
 .project-card-link.web .progress-fill {
