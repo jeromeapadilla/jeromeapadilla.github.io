@@ -350,3 +350,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Add this to your main.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate progress bars
+    document.querySelectorAll('.animate-progress').forEach(bar => {
+        const targetWidth = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+            bar.style.width = targetWidth;
+        }, 300);
+    });
+
+    // Animate log entries
+    const logEntries = document.querySelectorAll('.log-entry');
+    logEntries.forEach((entry, index) => {
+        setTimeout(() => {
+            entry.classList.add('animate');
+        }, index * 200);
+    });
+
+    // Add hover effect to status badges
+    document.querySelectorAll('.status-badge').forEach(badge => {
+        badge.addEventListener('mouseenter', () => {
+            badge.style.transform = 'scale(1.1)';
+        });
+        badge.addEventListener('mouseleave', () => {
+            badge.style.transform = 'scale(1)';
+        });
+    });
+});

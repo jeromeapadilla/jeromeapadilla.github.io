@@ -112,10 +112,125 @@ body {
     flex: 1;
 }
 
-.log-content h4 {
-    font-size: 1.1rem;
+/* Status Badges with Animations */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.status-badge.completed {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.status-badge.in-progress {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+}
+
+.status-badge.on-hold {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.status-badge.coming-soon {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+/* Progress Bar Animation */
+.progress-fill.animate-progress {
+    width: 0;
+    transition: width 1.5s ease-out 0.3s;
+}
+
+/* Log Entry Animation */
+.log-entry {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.log-entry.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyframe Animations */
+@keyframes pulse-animation {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(23, 162, 184, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 5px rgba(23, 162, 184, 0);
+    }
+}
+
+@keyframes swing-animation {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes float-animation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animations */
+.pulse-animation {
+    animation: pulse-animation 2s infinite;
+}
+
+.swing-animation {
+    animation: swing-animation 3s ease-in-out infinite;
+}
+
+.float-animation {
+    animation: float-animation 3s ease-in-out infinite;
+}
+
+/* Adjust log entry layout */
+.log-content h4 {
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.log-content:hover h4 {
+    transform: translateX(5px);
 }
 
 .log-content p {
