@@ -538,9 +538,9 @@ body {
 }
 
 .progress-bar {
-    height: 8px;
+    height: 17px;
     background-color: rgba(58, 12, 163, 0.1);
-    border-radius: 4px;
+    border-radius: 6px;
     position: relative;
     margin-top: 1rem;
     overflow: hidden;
@@ -555,12 +555,14 @@ body {
 
 .progress-text {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 0;
+    top: 65%;
     transform: translateY(-50%);
-    font-size: 0.7rem;
-    font-weight: 900;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--black);
+    padding: 0.2rem 0.5rem;
+    z-index: 2;
 }
 
 
@@ -1228,7 +1230,7 @@ a {
 .deadline-date, .completion-date {
     font-weight: 500;
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: 8px;
     background: rgba(58, 12, 163, 0.1);
     animation: fadeIn 0.5s ease;
 }
@@ -1907,7 +1909,11 @@ a {
     }
 
     .project-title {
-        font-size: 1.1rem;
+        padding-right: 50px;
+    }
+
+    .progress-text {
+        font-size: 0.7rem;
     }
 
     .project-category {
