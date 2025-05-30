@@ -180,9 +180,9 @@ body {
 }
 
 .tool-tag.ai {
-    background: rgba(255, 152, 0, 0.12);
-    color: #FF9800;
-    border-color: rgba(255, 152, 0, 0.2);
+    background: rgba(165, 243, 250, 0.12);
+    color: #063b45;
+    border-color: rgba(61, 84, 85, 0.2);
     animation-delay: 0.3s;
 }
 
