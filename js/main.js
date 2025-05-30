@@ -257,3 +257,52 @@ function setupSocialLinksAnimation() {
         }, 1000);
     });
 }
+
+// Tags animation on scroll
+function animateToolTags() {
+    const logEntries = document.querySelectorAll('.log-entry');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    logEntries.forEach(entry => observer.observe(entry));
+}
+
+// Call this in your DOMContentLoaded event listener
+document.addEventListener("DOMContentLoaded", function () {
+    // ... your existing code ...
+    animateToolTags();
+});
+
+// update for tools in projects:
+
+// Add this to your existing main.js
+function animateProjectTools() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('active');
+        });
+        
+        // Optional: Remove active class when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('active');
+        });
+    });
+}
+
+// Call this in your DOMContentLoaded event listener
+document.addEventListener("DOMContentLoaded", function () {
+    // ... your existing code ...
+    animateProjectTools();
+});

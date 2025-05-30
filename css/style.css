@@ -29,6 +29,305 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Project Tools Styles */
+.project-tools {
+    margin: 0.8rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tools .tool-tag {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    line-height: 1;
+}
+
+.project-tools .tool-tag i {
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+    width: 14px;
+    text-align: center;
+}
+
+/* Additional Tool Tag Colors */
+.tool-tag.java {
+    background: rgba(247, 142, 30, 0.12);
+    color: #F78E1E;
+    border: 1px solid rgba(247, 142, 30, 0.2);
+}
+
+.tool-tag.pandas {
+    background: rgba(20, 68, 109, 0.12);
+    color: #14446D;
+    border: 1px solid rgba(20, 68, 109, 0.2);
+}
+
+.tool-tag.adobe {
+    background: rgba(255, 0, 0, 0.12);
+    color: #FF0000;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.tool-tag.illustrator {
+    background: rgba(255, 153, 0, 0.12);
+    color: #FF9900;
+    border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.tool-tag.photoshop {
+    background: rgba(0, 105, 255, 0.12);
+    color: #0069FF;
+    border: 1px solid rgba(0, 105, 255, 0.2);
+}
+
+.tool-tag.canva {
+    background: rgba(0, 174, 239, 0.12);
+    color: #00AEEF;
+    border: 1px solid rgba(0, 174, 239, 0.2);
+}
+
+/* Hover Effects */
+.project-card:hover .tool-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Animation */
+.project-card .tool-tag {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.project-card.active .tool-tag,
+.project-card:hover .tool-tag {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Animation */
+.project-card:hover .tool-tag:nth-child(1) { transition-delay: 0.1s; }
+.project-card:hover .tool-tag:nth-child(2) { transition-delay: 0.2s; }
+.project-card:hover .tool-tag:nth-child(3) { transition-delay: 0.3s; }
+
+
+/* Tools Used Section Styles */
+.tools-used {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tools-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgba(17, 17, 17, 0.8);
+    padding: 0.3rem 0;
+    min-width: 80px;
+}
+
+.tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    flex: 1;
+}
+
+.tool-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(5px);
+    line-height: 1;
+    border: 1px solid transparent;
+}
+
+.tool-tag i {
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+}
+
+/* Tool-specific colors */
+.tool-tag.python {
+    background: rgba(55, 118, 171, 0.12);
+    color: #3776AB;
+    border-color: rgba(55, 118, 171, 0.2);
+    animation-delay: 0.1s;
+}
+
+.tool-tag.flask {
+    background: rgba(0, 0, 0, 0.08);
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.15);
+    animation-delay: 0.2s;
+}
+
+.tool-tag.ai {
+    background: rgba(255, 152, 0, 0.12);
+    color: #FF9800;
+    border-color: rgba(255, 152, 0, 0.2);
+    animation-delay: 0.3s;
+}
+
+.tool-tag.nlp {
+    background: rgba(75, 181, 67, 0.12);
+    color: #4BB543;
+    border-color: rgba(75, 181, 67, 0.2);
+    animation-delay: 0.4s;
+}
+
+.tool-tag.django {
+    background: rgba(9, 73, 62, 0.12);
+    color: #09273E;
+    border-color: rgba(9, 73, 62, 0.2);
+    animation-delay: 0.2s;
+}
+
+.tool-tag.database {
+    background: rgba(51, 103, 145, 0.12);
+    color: #336791;
+    border-color: rgba(51, 103, 145, 0.2);
+    animation-delay: 0.3s;
+}
+
+.tool-tag.chart {
+    background: rgba(255, 99, 132, 0.12);
+    color: #FF6384;
+    border-color: rgba(255, 99, 132, 0.2);
+    animation-delay: 0.4s;
+}
+
+.tool-tag.web {
+    background: rgba(86, 61, 124, 0.12);
+    color: #563d7c;
+    border-color: rgba(86, 61, 124, 0.2);
+    animation-delay: 0.4s;
+}
+
+.tool-tag.html {
+    background: rgba(227, 79, 38, 0.12);
+    color: #E34F26;
+    border-color: rgba(227, 79, 38, 0.2);
+    animation-delay: 0.1s;
+}
+
+.tool-tag.css {
+    background: rgba(41, 101, 241, 0.12);
+    color: #2965f1;
+    border-color: rgba(41, 101, 241, 0.2);
+    animation-delay: 0.2s;
+}
+
+.tool-tag.js {
+    background: rgba(240, 219, 79, 0.15);
+    color: #d6ba32;
+    border-color: rgba(240, 219, 79, 0.25);
+    animation-delay: 0.3s;
+}
+
+.tool-tag.git {
+    background: rgba(241, 80, 47, 0.12);
+    color: #F1502F;
+    border-color: rgba(241, 80, 47, 0.2);
+    animation-delay: 0.4s;
+}
+
+.tool-tag.react {
+    background: rgba(97, 218, 251, 0.12);
+    color: #61DAFB;
+    border-color: rgba(97, 218, 251, 0.2);
+    animation-delay: 0.1s;
+}
+
+.tool-tag.node {
+    background: rgba(140, 200, 75, 0.12);
+    color: #8CC84B;
+    border-color: rgba(140, 200, 75, 0.2);
+    animation-delay: 0.2s;
+}
+
+.tool-tag.mongo {
+    background: rgba(77, 181, 67, 0.12);
+    color: #4DB543;
+    border-color: rgba(77, 181, 67, 0.2);
+    animation-delay: 0.3s;
+}
+
+.tool-tag.figma {
+    background: rgba(162, 89, 255, 0.12);
+    color: #A259FF;
+    border-color: rgba(162, 89, 255, 0.2);
+    animation-delay: 0.4s;
+}
+
+.tool-tag.next {
+    background: rgba(0, 0, 0, 0.12);
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.2);
+    animation-delay: 0.1s;
+}
+
+.tool-tag.tailwind {
+    background: rgba(6, 182, 212, 0.12);
+    color: #06B6D4;
+    border-color: rgba(6, 182, 212, 0.2);
+    animation-delay: 0.2s;
+}
+
+.tool-tag.graphql {
+    background: rgba(229, 53, 171, 0.12);
+    color: #E535AB;
+    border-color: rgba(229, 53, 171, 0.2);
+    animation-delay: 0.3s;
+}
+
+.tool-tag.docker {
+    background: rgba(13, 183, 237, 0.12);
+    color: #0DB7ED;
+    border-color: rgba(13, 183, 237, 0.2);
+    animation-delay: 0.4s;
+}
+
+/* Hover effects */
+.tool-tag:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+/* Animation for tool tags */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make sure tool tags animate when scrolled into view */
+.log-entry.animate .tool-tag {
+    animation: fadeIn 0.5s ease forwards;
+}
 
 /* Language Switcher */
 .language-switcher {
@@ -1353,6 +1652,24 @@ a {
 @media (max-width: 768px) {
 
     
+
+    @media (max-width: 768px) {
+        .tools-used {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .tool-tags {
+            width: 100%;
+        }
+        
+        .tool-tag {
+            padding: 0.35rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
+
     /* Navbar */
     .menu-toggle {
         display: flex;
