@@ -1,0 +1,52 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282c34;
+    color: #3986aca1;
+}
+
+header {
+    background-color: #212529;
+    color: #61dafb;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+nav {
+    background-color: #24292da1;
+    padding: 9px;
+    text-align: center;
+}
+
+nav a {
+    color: #418699;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+footer {
+    background-color: #212529;
+    color: #61dafb;
+    padding: 6px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

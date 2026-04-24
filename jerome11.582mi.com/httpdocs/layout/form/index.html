@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Feedback Form for Social Cause Presentation</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Feedback on Social Cause Presentation</h1>
+
+    <div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/u2ZQ-wBqNRc?autoplay=1&loop=1&playlist=u2ZQ-wBqNRc&mute=1" 
+        frameborder="0" 
+        allowfullscreen 
+        allow="autoplay"
+    ></iframe>
+</div>
+
+
+    <form id="regForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b58aba38-3214-489b-aa4c-c91cf5e64938">
+
+        <!-- Step 1: General Feedback -->
+        <div class="tab">
+            <h3>General Feedback:</h3>
+            <p><input placeholder="Your Name..." oninput="this.className = ''" name="name" required></p>
+            <p><input type="email" placeholder="Your Email..." oninput="this.className = ''" name="email" required></p>
+            <p>Did you learn something new?</p>
+            <p><input type="radio" name="learned" value="Yes" oninput="this.className = ''" required> Yes</p>
+            <p><input type="radio" name="learned" value="No" oninput="this.className = ''" required> No</p>
+        </div>
+
+        <!-- Step 2: Content Resonance -->
+        <div class="tab">
+            <h3>Presentation Content:</h3>
+            <p>Which part of the presentation resonated with you the most?</p>
+            <p><input placeholder="Your Answer..." oninput="this.className = ''" name="resonated" required></p>
+            <p>What do you felt on the presentation?</p>
+            <p><input type="radio" name="stats" value="Very helpful" oninput="this.className = ''" required> Very helpful</p>
+            <p><input type="radio" name="stats" value="Somewhat helpful" oninput="this.className = ''" required> Somewhat helpful</p>
+            <p><input type="radio" name="stats" value="Not helpful" oninput="this.className = ''" required> Not helpful</p>
+        </div>
+
+        <!-- Step 3: Action and Solutions -->
+        <div class="tab">
+            <h3>Action and Solutions:</h3>
+            <p>How can you contribute to raising awareness for this cause?</p>
+            <p><input placeholder="Your Answer..." oninput="this.className = ''" name="contribute" required></p>
+            <p>What solutions or initiatives stood out to you?</p>
+            <p><input placeholder="Your Answer..." oninput="this.className = ''" name="solutions" required></p>
+        </div>
+
+        <!-- Step 4: Final Thoughts -->
+        <div class="tab">
+            <h3>Final Thoughts:</h3>
+            <p>Any additional comments or suggestions?</p>
+            <p><textarea placeholder="Your comments..." oninput="this.className = ''" name="comments"></textarea></p>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+
+        <!-- Step indicators -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+
+    </form>
+
+    <div class="footer">
+        <p>Thank you for your feedback! Together, we can make a difference.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

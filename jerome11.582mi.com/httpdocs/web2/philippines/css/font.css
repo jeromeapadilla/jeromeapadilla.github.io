@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Bantayog';
+    src: url('/web2/philippines/fonts/Bantayog/Bantayog-Regular.otf') format('opentype'),
+}
+
+@font-face {
+    font-family: 'Bantayog Light';
+    src: url('/web2/philippines/fonts/Bantayog/Bantayog-Light.otf') format('opentype'),
+}
+
+
+@font-face {
+    font-family: 'Bantayog Semi Light';
+    src: url('/web2/philippines/fonts/Bantayog/Bantayog-Semilight.otf') format('opentype'),
+}

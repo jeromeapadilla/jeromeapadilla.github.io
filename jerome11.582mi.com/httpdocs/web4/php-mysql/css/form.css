@@ -1,0 +1,12 @@
+#webform {
+  display: grid;
+}
+
+#webform input {
+  margin-bottom: 1em;
+}
+
+#viewFormData article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* adjust this for more columns or less */
+}

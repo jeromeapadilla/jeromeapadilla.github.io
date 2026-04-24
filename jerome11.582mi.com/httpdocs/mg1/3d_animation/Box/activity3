@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Layer Animation</title>
+    <link rel="stylesheet" href="/css/design3.css">    
+    <link rel="stylesheet" href="/mg1/3d_animation/style.css"> 
+</head>
+<body>
+    <header>
+        <h1>3D Animation</h1>
+    </header>
+        <header>
+            <a href="/mg1/index.html"> Home</a>
+        </header>
+    <main>
+
+
+        <video width="800" height="450" controls>
+            <source src="./My_box.mp4" type="video/mp4">
+      
+        </video>
+        
+    </main>
+</body>
+</html>
+

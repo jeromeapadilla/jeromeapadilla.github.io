@@ -1,0 +1,304 @@
+/* Combined CSS */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow-y: scroll;
+}
+
+.container {
+    height: 100vh; 
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 50px;
+}
+
+.character figure {
+    position: relative;
+    margin: 0; 
+    width: 300px; 
+    height: 300px; 
+    overflow: hidden; 
+}
+
+.character figure img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; 
+    height: auto; 
+    opacity: 0;
+}
+
+.character figure .visible {
+    opacity: 1;
+}
+
+.character figure .hidden {
+    opacity: 0;
+}
+
+.character figure:hover .hidden {
+    opacity: 1;
+}
+
+.character {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.character h3 {
+    color: #333;
+    margin-top: 0;
+}
+
+.character p {
+    color: #666;
+}
+
+.character img {
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+#story-intro {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#story-intro h2 {
+    color: #333;
+}
+
+#story-intro p {
+    color: #666;
+}
+/*Sword centre*/
+
+#sword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#s3d {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#s3d2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+/* Section */
+#sword {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#sword h2 {
+    color: #333;
+}
+
+#sword p {
+    color: #666;
+}
+
+/* First Sword */
+
+#s3d {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#platform-container {
+    position: relative;
+}
+
+#platform {
+    width: 200px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(80px) rotateX(51deg) rotateZ(43deg);
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.585), -1px 0 28px 0 rgba(203, 203, 203, 0.1), 28px 28px 28px rgba(183, 185, 185, 0.687);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#platform:hover {
+    transform: rotateZ(180deg);
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.95), -1px 0 28px 0 rgba(204, 204, 204, 0.25), 54px 54px 28px -10px rgba(112, 112, 112, 0.15);
+}
+
+#platform img {
+    width: auto;
+    height: 500px;
+    transition: transform 0.5s ease;
+}
+
+#platform:hover img {
+    transform: scale(1.1) rotate(0deg);
+}
+
+#sword-description {
+    position: absolute;
+    bottom: 20px;
+    left: calc(100% + 20px);
+    width: 300px; /* Adjust as needed */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#platform-container:hover #sword-description {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#sword-description h3,
+#sword-description p {
+    text-align: center;
+}
+
+#platform-container:hover #sword-description {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#sword-description {
+    position: absolute;
+    top: -600px;
+    left: 50% ;
+    height: 200px;
+    transform: translateX( 50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(182, 207, 220, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(49, 142, 183, 0.827);
+    transition: opacity 0.4s ease, top 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#platform-container:hover #sword-description {
+    top: -10px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Second Sword */
+#platform2 {
+    width: 200px;
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-80px) rotateX(51deg) rotateZ(43deg); /* Adjust translate */
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.585), -1px 0 28px 0 rgba(203, 203, 203, 0.1), 28px 28px 28px rgba(183, 185, 185, 0.687);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Keep same */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#platform2:hover {
+    transform: translateY(-10px) rotateZ(180deg); /* Keep same */
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.95), -1px 0 28px 0 rgba(204, 204, 204, 0.25), 54px 54px 28px -10px rgba(112, 112, 112, 0.15); /* Keep same */
+}
+
+#platform2 img {
+    width: fit-content;
+    height: 300px;
+    object-fit: cover;  
+    transition: transform 0.5s ease; 
+}
+
+#platform2:hover img {
+    transform: scale(1.1); 
+}
+
+#sword-description2 {
+    position: absolute;
+    top: -400px; /* Initially hidden above */
+    left: 20%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 300px;
+    height: 220px;
+    padding: 20px;
+    background-color: rgba(139, 197, 197, 0.769);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(112, 211, 233, 0.919);
+    transition: opacity 0.4s ease, top 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#platform-container2:hover #sword-description2 {
+    top: 550px; /* Show description on hover */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#sword-description2 h3,
+#sword-description2 p {
+    color: rgb(0, 0, 0); /* Set font color to white */
+}

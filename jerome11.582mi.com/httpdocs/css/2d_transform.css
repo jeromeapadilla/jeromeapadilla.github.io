@@ -1,0 +1,46 @@
+/* 2d transform.css */
+
+#anime1, 
+#anime2,
+#car{
+    transition: transform 0.5s;
+}
+#anime1:hover{
+    transform: rotate(45deg);
+}
+
+#anime2:hover{
+    transform: scale(2);
+}
+
+.move-right {
+    transform: translateX(500px);
+}
+
+/* message */
+
+article{
+    position: relative;
+}
+
+article section {
+  position: absolute;
+  top: 1cm;
+  width: 500px;
+  left: -731px;
+  background-color: rgba(197, 180, 180, 0.95);
+  transition: transform 0.5s;
+}
+  
+article section nav{
+    width: 750px;
+    font-size: 30px;
+    text-align: right;
+    padding: 0.2cm;
+    background-color: rgba(87, 75, 75, 0.95);
+}
+
+.visible{
+    transform: translateX(731px);
+}
+  

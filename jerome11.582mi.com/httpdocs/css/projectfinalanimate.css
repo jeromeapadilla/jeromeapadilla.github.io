@@ -1,0 +1,200 @@
+.character figure {
+    position: relative;
+    margin: 0; 
+    width: 300px; 
+    height: 300px; 
+    overflow: hidden; 
+}
+  
+.character figure img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; 
+    height: auto; 
+    opacity: 0;
+}
+  
+.character figure .visible {
+    opacity: 1;
+}
+  
+.character figure .hidden {
+    opacity: 0;
+}
+  
+.character figure:hover .hidden {
+    opacity: 1;
+}
+
+    /*Message auto scrolling*/
+    @keyframes scroll {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+
+    .auto-scroll {
+        animation: scroll 30s linear infinite;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite ;
+    }
+
+    /*Message (Animations)*/
+
+    #story-intro,
+    #kirito,
+    #asuna_sword_info,
+    #kirito_sword_info,
+    #asuna_info {
+        opacity: 0; 
+        animation: story-intro 6s forwards;
+        animation-delay: 1s; 
+        scroll-margin-top: 50vh; 
+    }
+    
+    #character-intro,
+    #asuna,
+    #kirito_info,
+    #sword_info,
+    #kirito_info {
+        opacity: 0;
+        animation: character-intro 6s forwards;
+        animation-delay: 1s;
+        scroll-margin-top: 50vh; 
+    }
+    
+    /* Message auto scrolling */
+    @keyframes scroll {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+    
+    .auto-scroll {
+        animation: scroll 30s linear infinite;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite ;
+    }
+    
+    /* Message (Animations) */
+    @keyframes story-intro {
+        0% {
+            opacity: 0;
+            transform: translateX(-500px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes character-intro {
+        0% {
+            opacity: 0;
+            transform: translateY(-500px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+
+    #sword1, #sword2 {
+        animation-name: sword;
+        animation-duration: 6s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: initial;
+        animation-play-state: initial;
+    }   
+
+    @keyframes sword {
+        0%{
+            transform: translateY(550px);
+        }
+    }
+
+
+
+
+    
+/*typing*/
+
+.typing-text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0;
+    letter-spacing: .15em;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+/*sword platform*/
+#sword1, #sword2 {
+    perspective: 1600px;
+}
+
+#sword1, #sword2 img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+#sword1:hover, #sword2:hover img {
+    transform: scale(1.1);
+}
+
+#sword1, #sword2 #platform {
+    width: 200px;
+    height: 270px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(80px) rotateX(51deg) rotateZ(43deg);
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 0 1px rgba(51, 49, 49, 0.585), -1px 0 28px 0 rgba(203, 203, 203, 0.1),28px 28px 28px rgba(69, 70, 70, 0.687);
+    transition: 0.4s ease-in-out transform 0.4s ease-in-out box-shadow;
+}
+
+#sword1:hover, #sword2:hover #platform {
+    transform:   rotateZ(180deg);
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.95), -1px 0 28px 0 rgba(204, 204, 204, 0.25), 54px 54px 28px -10px rgba(112, 112, 112, 0.15)
+}
+
+#sword1 p, #sword2 p {
+    width: 350px;
+    transform: translateY(155px) translateX(-75px) translateZ(20px) rotateX(-90deg) rotateY(90deg);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: 0.4s ease-in-out capacity;
+}
+
+#sword1:hover p, #sword2:hover p {
+    opacity: 0.9;
+    text-shadow: 2px 6px 6px rgb(0, 0, 0);
+}
+
+#sword1 p, #sword2 p {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateY(50%);
+    color: #000000; 
+    font-size: 18px;
+    text-align: center;
+    transform-style: preserve-3d;
+    rotate: 90deg; 
+    font-size: 20px;
+}

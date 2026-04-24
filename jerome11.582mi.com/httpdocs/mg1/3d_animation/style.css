@@ -1,0 +1,27 @@
+
+body {
+    text-align: center;
+}
+video {
+    display: block;
+    margin: 20px auto;
+}
+
+.home-button {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    /* or use right: 10px; for top right */
+    background-color: #a6cdf6; /* Blue background color */
+    border: 1px solid #8eb7e2; /* Darker blue border */
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #282828; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Consistent font */
+    font-size: 16px; /* Adjust text size */
+}
+.home-button:hover {
+    background-color: #748698; /* Darker blue on hover */
+    border-color: #004085; /* Even darker blue border on hover */
+}

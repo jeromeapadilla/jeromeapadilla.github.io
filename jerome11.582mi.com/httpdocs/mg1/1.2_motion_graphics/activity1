@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Matte</title>
+    <link rel="stylesheet" href="/css/design3.css">    
+    <style>
+        body {
+            text-align: center;
+        }
+        iframe {
+            width: 800px;
+            height: 450px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Motion Graphics</h1>
+    </header>
+    <header>
+        <a href="/mg1/index.html">Home</a>
+    </header>
+    <main>
+        <iframe src="https://www.youtube.com/embed/Papb3SNUtyk" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/zPZyO5Kw9yQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/bZuEdLtkKF4" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5APeocJB4T4" frameborder="0" allowfullscreen></iframe>
+    </main>
+</body>
+</html>

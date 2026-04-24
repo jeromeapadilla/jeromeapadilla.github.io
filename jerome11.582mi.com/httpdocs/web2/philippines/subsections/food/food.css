@@ -1,0 +1,296 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+    overflow-x: hidden; 
+}
+
+.big-image {
+    z-index: 1;
+    overflow: hidden; 
+    height: 100vh;
+    width: 100%;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px; 
+}
+
+.big-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.big-image h1 {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 162px; 
+}
+
+.big-image h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    color: white; 
+    font-size: 24px; 
+}   
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: -20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: rgb(253, 249, 206); 
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a {
+    padding: 10px;
+    display: block;
+    color: #fff;
+}
+
+.hero {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Grid layout */
+.grid-container {
+    display: grid;
+    align-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+    grid-gap: 20px;
+    margin-top: 20px;   
+}
+
+.grid-item {
+    padding: 10px;
+    background-color: lemonchiffon;
+}
+
+.grid-item img {
+    max-width: 80%;
+    max-height: 50%;
+    width: auto;
+    height: auto;
+}
+
+.picture img,
+.image img {
+    max-width: 100%;
+}
+
+.text {
+    text-align: left;
+}
+
+.logo img {
+    max-width: 20%; 
+    height: auto; 
+}
+
+.big-image {
+    text-align: center; 
+    margin-bottom: 40px; 
+    margin-top: 20px;
+    filter: drop-shadow(20px 20px 10px black);
+}
+
+.big-image img {
+    max-width: 100%; 
+}
+
+/* Media query */
+@media (max-width: 768px) {
+
+    .big-image {
+        overflow-x: hidden; /* Add this line to prevent horizontal overflow */
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2 {
+        margin: 50px 0; 
+    }
+
+    .logo img {
+        max-width: 50px; 
+        height: auto; 
+    }
+
+    body {
+        overflow-x: hidden; 
+    }
+
+    .big-image {
+        height: 50vh; 
+        margin-top: 40px; 
+        margin-bottom: 20px; 
+    }
+
+    .big-image h1 {
+        font-size: 72px; 
+    }
+
+    .big-image h2 {
+        font-size: 16px; 
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; 
+        grid-gap: 20px; 
+    }
+
+    .grid-item {
+        width: 100%;
+        padding: 10px; 
+        height: auto;
+    }
+
+    .grid-item .text {
+        font-size: 14px; 
+    }
+
+    .grid-item img {
+        max-width: 100%; 
+        height: auto; 
+        display: block; 
+        margin: 0 auto; 
+    }
+
+    .fade {
+        animation-duration: 2s; 
+    }
+
+    #capy {
+        max-width: 90%; 
+        width: 90%; 
+        height: auto; 
+        display: block; 
+        margin: 0 auto; 
+        position: absolute;
+        opacity: 1;
+        left: 1%;
+    }
+
+    
+}
+
+/* Rest of your existing CSS */
+
+
+/* Fonts */
+h2 {
+    font-family: 'Bantayog', Arial, sans-serif;
+}
+
+i {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    font-family: 'Bantayog Light', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.fade{
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+
+/*Arrow*/ 
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+
+/*Keyframe Picture*/ 
+#capy {
+    max-width: 690px;
+    position: absolute;
+    transform: translateX(90vw);
+    opacity: 0.1;
+    transition: transform 1000ms, opacity 500ms;    
+    height: 300px;  
+  }
+  
+  #capy.visible {
+    transform: translateX(90px);
+    opacity: 1;
+  }
+  

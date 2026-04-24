@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: initial;
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    scrollbar-width: none;
+}
+
+
+body {
+    background-color: #23313f;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+}
+
+#background {
+    position: relative;
+    background: rgb(164, 225, 240);
+    width: 2500px;
+    height: 555px;
+}
+
+#clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(/svg/clouds.svg);
+    width: 1439px;
+    height: 555px;
+    animation: foreground 60s -5s linear infinite;
+    background-size: cover;
+}
+
+#mountains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(/svg/mountains.svg);
+    width: 1439px;
+    height: 555px;
+    animation: foreground 20s -5s linear infinite;
+    background-size: cover;
+}
+
+#foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(/svg/foreground.svg);
+    width: 1439px;
+    height: 555px;
+    animation: foreground 3s -5s linear infinite;
+    background-size: cover;
+}
+
+@keyframes foreground {
+    100% {
+        background-position: -2550px 0px;
+    }
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 600px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+}

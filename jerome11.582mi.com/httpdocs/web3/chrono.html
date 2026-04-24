@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono Timer</title>
+    <link rel="stylesheet" href="./css/chrono.css">
+</head>
+<body>
+
+<div id="container">
+    <h1>Chronometre</h1>
+
+    <div id="switch">
+        <img id="chrono_btn" src="./img/881dcc1b4fc9fba9cb752e2ec526fab3944c22628c2ea5312f44379c4d294119-removebg-preview.png" alt="Chrono Mode">
+        <img id="timer_btn" src="./img/stopwatch-logo-icon-vector-removebg-preview.png" alt="Timer Mode">
+    </div>
+
+
+    <div id="chrono" class="clock">
+        <span id="chrono_min">00</span>:<span id="chrono_sec">00</span>
+    </div>
+
+
+    <div id="timer" class="timer" style="display:none;">
+        <input type="number" id="timer_min" value="0">:
+        <input type="number" id="timer_sec" value="0">
+    </div>
+
+
+    <div id="analogue">
+        <svg width="200" height="200" viewBox="0 0 100 100">
+            
+            <circle cx="50" cy="50" r="48" stroke="white" stroke-width="2" fill="none"></circle>
+    
+            <line id="minute_hand" x1="50" y1="50" x2="50" y2="20" stroke="white" stroke-width="2" />
+    
+         
+            <line id="second_hand" x1="50" y1="50" x2="50" y2="10" stroke="red" stroke-width="1" />
+        </svg>
+    </div>
+    
+
+    <div id="controls">
+        <button id="start_btn">Start</button>
+        <button id="pause_btn">Pause</button>
+        <button id="reset_btn">Reset</button>
+    </div>
+</div>
+
+<script src="./js/chrono.js"></script>
+</body>
+</html>

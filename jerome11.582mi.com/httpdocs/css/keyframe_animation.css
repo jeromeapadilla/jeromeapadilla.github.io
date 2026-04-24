@@ -1,0 +1,52 @@
+#car {
+    animation-name: drivingAround;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite ;
+}   
+
+@keyframes drivingAround {
+    0%{
+        transform: translateX(0px);
+    }
+    48%{
+        transform: translateX(600px);
+    }
+    50%{
+        transform: rotateY(180deg) translateX(-600px);
+    }
+    98%{
+        transform: translateX(0px) rotateY(180deg);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+/* message */
+
+article{
+    position: relative;
+}
+
+article section {
+  position: absolute;
+  top: 1cm;
+  width: 500px;
+  left: -731px;
+  background-color: rgba(197, 180, 180, 0.95);
+  transition: transform 0.5s;
+}
+  
+article section nav{
+    width: 750px;
+    font-size: 30px;
+    text-align: right;
+    padding: 0.2cm;
+    background-color: rgba(87, 75, 75, 0.95);
+}
+
+.visible{
+    transform: translateX(731px);
+}
+  

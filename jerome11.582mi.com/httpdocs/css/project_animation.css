@@ -1,0 +1,149 @@
+.character figure {
+    position: relative;
+    margin: 0; 
+    width: 300px; 
+    height: 300px; 
+    overflow: hidden; 
+  }
+  
+  .character figure img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%; 
+    height: auto; 
+    opacity: 0;
+  }
+  
+  .character figure .visible {
+    opacity: 1;
+  }
+  
+  .character figure .hidden {
+    opacity: 0;
+  }
+  
+  .character figure:hover .hidden {
+    opacity: 1;
+  }
+
+
+/*Message (Animations)*/
+
+
+#story-intro {
+    animation-name: story-intro;
+    animation-duration: 6s;
+    animation-timing-function: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: initial;
+}   
+
+@keyframes story-intro {
+    0%{
+        transform: translateX(-500px);
+    }
+    
+}
+
+#character-intro {
+    animation-name: character-intro;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: 2s;
+    animation-iteration-count: initial;
+}   
+
+@keyframes character-intro {
+    0%{
+        transform: translateX(500px);
+    }
+}
+
+#sword {
+    animation-name: sword;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: initial;
+    animation-play-state: initial;
+}   
+
+@keyframes sword {
+    0%{
+        transform: translateY(550px);
+    }
+}
+
+
+/*typing*/
+
+.typing-text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0;
+    letter-spacing: .15em;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+/*sword*/
+
+#s3d{
+    perspective: 1500px;
+}
+
+#platform{
+    width: 200px;
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(80px) rotateX(51deg) rotateZ(43deg);
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.585), -1px 0 28px 0 rgba(203, 203, 203, 0.1),28px 28px 28px rgba(183, 185, 185, 0.687);
+    transition: 0.4s ease-in-out transform 0.4s ease-in-out box-shadow;
+}
+
+#platform:hover{
+    transform:   rotateZ(180deg);
+    box-shadow: 1px 1px 0 1px rgba(255, 255, 255, 0.95), -1px 0 28px 0 rgba(204, 204, 204, 0.25), 54px 54px 28px -10px rgba(112, 112, 112, 0.15)
+}
+
+#platform p{
+    width: 350px;
+    transform: translateY(155px) translateX(-75px) translateZ(20px) rotateX(-90deg) rotateY(90deg);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: 0.4s ease-in-out capacity;
+}
+
+#platform:hover p{
+    opacity: 0.9;
+    text-shadow: 2px 6px 6px rgb(255, 255, 255);
+}
+
+#platform img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+  
+#platform:hover img {
+    transform: scale(1.1);
+  }
+  
+#platform p {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateY(50%);
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+  }
+  

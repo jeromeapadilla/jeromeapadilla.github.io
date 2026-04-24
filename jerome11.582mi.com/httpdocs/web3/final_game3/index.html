@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quest Game</title>
+  <!-- Add Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  
+  <!-- Main Menu -->
+  <div id="menu">
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="showInstructions()">Instructions</button>
+    <!-- Add the download button -->
+    <button onclick="downloadPackage()">Download Advertisements</button>
+  </div>
+
+ <!-- Game Container (Hidden initially) -->
+<div id="game-container" style="display: none;">
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+  <p id="instructions" style="display: none;">Use arrow keys to move, and 'E' to interact.</p>
+  <p id="status">Status: Explore the area...</p>
+  <button id="back-menu" onclick="backToMenuFromGame()">Back to Menu</button>
+</div>
+
+
+  <!-- Instructions (Hidden initially) -->
+  <div id="instructions-container" style="display: none;">
+    <h2>Game Instructions</h2>
+    <p>Use the arrow keys to move your character around.</p>
+    <p>Press 'E' to interact with objects and defeat enemies.</p>
+    <button onclick="backToMenu()">Back to Menu</button>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

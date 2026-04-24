@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b0b8ce;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s;
+}
+
+#container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #505a74;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#switch img {
+    cursor: pointer;
+    width: 60px;
+    margin: 0 15px;
+    transition: transform 0.3s;
+}
+
+#switch img:hover {
+    transform: scale(1.1);
+}
+
+.clock,
+.timer {
+    font-size: 3rem;
+    margin: 30px 0;
+}
+
+input[type="number"] {
+    width: 50px;
+    font-size: 2rem;
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #505a74;
+    background-color: #FFFFFF;
+    color: #333;
+}
+
+#controls button {
+    padding: 10px 25px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #505a74;
+    color: white;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#controls button:hover {
+    background-color: #37454f;
+    transform: scale(1.05);
+}
+
+svg {
+    margin-top: 20px;
+}

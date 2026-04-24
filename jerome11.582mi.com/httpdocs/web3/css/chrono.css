@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #d1e1f2, #99ccff);
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 350px;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #38e4ffea;
+}
+
+.clock, .timer {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    font-size: 24px;
+    width: 60px;
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+#switch {
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Analogue clock styling */
+#analogue {
+    margin: 20px 0;
+}
+
+/* Set transform-origin to the center of the clock */
+#minute_hand, #second_hand {
+    transform-origin: 50px 50px; /* The center of the clock */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #079694;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: #0ef7ff;
+    transform: scale(1.05); /* Slightly increases button size */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+
+#chrono_btn, #timer_btn {
+    margin: 20px;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 90%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the circle area without distortion */
+}
+
+#chrono_btn:hover, #timer_btn:hover {
+    transform: scale(1.1); /* Slightly enlarges the image on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a shadow effect */
+}

@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc; /* Soft, light background */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6; /* Improved readability */
+}
+
+.container {
+    max-width: 700px; /* Increased width for better layout */
+    margin: auto;
+    padding: 40px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    border: 1px solid #e1e1e1; /* Subtle border for definition */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab {
+    display: none; /* Hide all tabs by default */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px; /* Comfortable padding */
+    margin: 10px 0; /* Spacing between elements */
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Comfortable font size */
+    transition: border-color 0.3s ease; /* Transition effect */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Highlighted border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* White text */
+    padding: 12px 20px; /* Increased padding for better size */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-size: 16px; /* Consistent font size */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+button:active {
+    transform: translateY(0); /* Reset on click */
+}
+
+button:disabled {
+    background-color: #6c757d; /* Gray for disabled buttons */
+    cursor: not-allowed;
+}
+
+/* Step Indicator Styles */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px; /* Spacing between step indicators */
+    background-color: #bbb; /* Default step color */
+    border-radius: 50%; /* Round shape */
+    display: inline-block; /* Display inline for horizontal alignment */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.step.active {
+    background-color: #007bff; /* Active step color */
+}
+
+/* Video Container Styles */
+.video-container {
+    margin: 20px 0;
+    text-align: center; /* Center video */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px; /* Fixed height for video */
+    border: none; /* Remove border around video */
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    margin-top: 30px; /* Space above footer */
+    font-size: 0.9em; /* Slightly smaller footer text */
+    color: #555; /* Gray color for footer text */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        padding: 10px; /* Smaller button size */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Smaller heading on mobile */
+    }
+}

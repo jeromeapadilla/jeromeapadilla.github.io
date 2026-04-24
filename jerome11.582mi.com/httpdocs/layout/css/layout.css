@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #000;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.best-photo {
+    font-weight: bold;
+    font-size: 18px;
+    color: #007aff;
+    margin-bottom: 40px;
+}
+
+/* Box Styling for Submission Form */
+.submission-form-box {
+    padding: 30px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.formgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+input[type="text"], input[type="date"], input[type="email"], select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus, select:focus {
+    outline: none;
+    border-color: #007aff;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+button[type="submit"] {
+    background-color: #007aff;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #005bb5;
+    transform: translateY(-3px);
+}
+
+.radio, .checkbox {
+    margin-bottom: 20px;
+}
+
+.radio label, .checkbox label {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.center {
+    display: block;
+    margin: 0 auto 30px auto;
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.center:hover {
+    transform: rotate(-5deg);
+}
+
+@media (max-width: 600px) {
+    .formgrid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+}
+
+.apple-watch-box {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.apple-watch-box h1, .apple-watch-box h3 {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.apple-watch-box p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.apple-watch-box ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.apple-watch-box ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    width: 300px; /* Adjust the size here */
+    height: 300px; /* Keeps the aspect ratio */
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #005bb5;
+}
+
+/* Add this for spacing between input boxes */
+.input-box {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px; /* Ensure there's space between label and input box */
+}
+
+/* Specific styling for the Province/State and YouTube URL */
+#province, input[name="youtube"] {
+    margin-bottom: 20px; /* Adds space below each of these specific input fields */
+}
+
+.radio {
+    margin-bottom: 15px; /* Adds space below each radio option */
+}
+
+.radio label {
+    margin-left: 10px; /* Space between the radio button and label text */
+}
+
+/* Adding margin for the question */
+label[for="source"] {
+    margin-bottom: 10px; /* Space between the question and the radio buttons */
+    display: block; /* Ensures the question takes the full line */
+}

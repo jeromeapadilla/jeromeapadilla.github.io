@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dog Obstacle Game</title>
+	<style>
+		body { margin: 0; overflow: hidden; }
+		.arrow { position: absolute; background: none; width: 3em; height: 3em; }
+		#uArrow { top: 0; width: 100%; }
+		#dArrow { bottom: 0; width: 100%; }
+		#lArrow { left: 0; height: 100%; }
+		#rArrow { right: 0; height: 100%; }
+		#gameBox { width: 100vw; height: 100vh; position: relative; }
+	</style>
+</head>
+<body>
+	<nav>
+		<div id="uArrow" class="arrow"></div>
+		<div id="dArrow" class="arrow"></div>
+		<div id="lArrow" class="arrow"></div>
+		<div id="rArrow" class="arrow"></div>
+	</nav>
+	<div id="gameBox"></div>
+	
+	<!-- Audio elements for game sounds -->
+	<audio id="win" src="win.mp3"></audio>
+	<audio id="over" src="sad.mp3"></audio>
+	<audio id="boneSound" src="bark.mp3"></audio>
+	
+	<!-- Link to game script -->
+	<script src="./js/game.js"></script>
+</body>
+</html>
