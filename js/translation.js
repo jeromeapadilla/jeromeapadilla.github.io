@@ -3,7 +3,7 @@
         en: {
             "Programmer | Graphic Designer | Multimedia": "Programmer | Graphic Designer | Multimedia",
             "Build. Create. Innovate.": "Build. Create. Innovate.",
-            "hero-description": "<strong>Aspiring Computer Science student</strong> passionate about technology, design, and problem-solving. studied at <strong>Vanier College</strong> with a focus on <strong>web development</strong>, <strong>programming</strong>, and <strong>digital design</strong>. I design and build <strong>responsive</strong>, <strong>user-friendly websites</strong> using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, while strengthening my programming skills in <strong>Python</strong> and <strong>Java</strong>. I also create interface designs and visual content using tools like <strong>Photoshop</strong>, <strong>Illustrator</strong>, and <strong>Canva</strong> —believing that strong design plays a key role in creating impactful digital experiences. My goal is to merge clean, purposeful design with <strong>functional</strong>, <strong>efficient code</strong> to build innovative, user-centered solutions. Above all, I have a deep love for <strong>programming</strong> and am always eager to <strong>learn</strong> and <strong>grow</strong>.",
+            "hero-description": "I build responsive websites and interactive projects that combine clean code with thoughtful visual design. My work brings together <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, and design tools like <strong>Photoshop</strong>, <strong>Illustrator</strong>, and <strong>Canva</strong>.",
             "Technical Skills": "Technical Skills",
             "Web Development": "Web Development",
             "Programming": "Programming",
@@ -44,7 +44,7 @@
         fr: {
             "Programmer | Graphic Designer | Multimedia": "Programmeur | Designer Graphique | Multimédia",
             "Build. Create. Innovate.": "Construire. Créer. Innover.",
-            "hero-description": "<strong>Étudiant en informatique</strong> passionné par la technologie, le design et la résolution de problèmes. J'ai étudié au <strong>Collège Vanier</strong> avec une spécialisation en <strong>développement web</strong>, <strong>programmation</strong> et <strong>design numérique</strong>. Je conçois et construis des sites web <strong>adaptatifs</strong> et <strong>conviviaux</strong> en utilisant <strong>HTML</strong>, <strong>CSS</strong> et <strong>JavaScript</strong>, tout en perfectionnant mes compétences en programmation avec <strong>Python</strong> et <strong>Java</strong>. Je crée également des interfaces et du contenu visuel avec des outils comme <strong>Photoshop</strong>, <strong>Illustrator</strong> et <strong>Canva</strong>, convaincu qu'un bon design joue un rôle clé dans la création d'expériences numériques marquantes. Mon objectif est d'allier un design épuré et intentionnel à un code <strong>fonctionnel</strong> et <strong>efficace</strong> pour créer des solutions innovantes centrées sur l'utilisateur. Par-dessus tout, j'ai une passion profonde pour la <strong>programmation</strong> et je suis toujours avide d'<strong>apprendre</strong> et de <strong>progresser</strong>.",
+            "hero-description": "Je crée des sites web adaptatifs et des projets interactifs qui combinent du code propre avec un design visuel réfléchi. Mon travail réunit <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, ainsi que des outils comme <strong>Photoshop</strong>, <strong>Illustrator</strong> et <strong>Canva</strong>.",
             "Technical Skills": "Compétences Techniques",
             "Web Development": "Développement Web",
             "Programming": "Programmation",
@@ -111,7 +111,7 @@
             '.section-title': ['About Me', 'Projects', 'Let\'s Connect'],
             '.category-title': ['Web Development', 'Programming', 'Graphic Design'],
             '.contact-text': 'contact-text',
-            '.nav-link': ['About', 'Work', 'Contact', 'Progress', 'Resume'],
+            '.nav-link': ['About', 'Work', 'Progress', 'Contact', 'Resume'],
             '.progress-category h3': 'Python Development'
         };
 
@@ -147,17 +147,6 @@
         document.documentElement.lang = lang;
     }
 
-    // Language button click event
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.dataset.lang;
-            translatePage(lang);
-            
-            // Save language preference to localStorage
-            localStorage.setItem('preferredLanguage', lang);
-        });
-    });
-
     // Check for saved language preference
-    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    const savedLang = localStorage.getItem('preferredLanguage') || localStorage.getItem('language') || 'en';
     translatePage(savedLang);

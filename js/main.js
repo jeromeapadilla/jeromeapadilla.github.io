@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setupCountdown();
     animateElementsOnLoad();
     setupSocialLinksAnimation();
+    animateToolTags();
+    animateProjectTools();
 });
 
 // Navbar scroll effect
@@ -70,6 +72,8 @@ function setupMenuToggle() {
 
 // Cursor trailer effect
 function setupCursorTrailer() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
     const cursorTrailer = document.createElement('div');
     cursorTrailer.classList.add('cursor-trailer');
     document.body.appendChild(cursorTrailer);
@@ -87,7 +91,7 @@ function setupProjectFilters() {
     const activeCountElement = document.querySelector('.active-count');
     const totalCountElement = document.querySelector('.total-count');
 
-    if (!filterButtons.length || !projectCards.length) return;
+    if (!filterButtons.length || !projectCards.length || !activeCountElement || !totalCountElement) return;
 
     totalCountElement.textContent = projectCards.length;
     updateActiveCount('all');
@@ -104,15 +108,10 @@ function setupProjectFilters() {
 
     function filterProjects(filter) {
         projectCards.forEach(card => {
-            if (filter === 'all' || card.classList.contains(filter)) {
-                card.style.display = 'block';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            } else {
-                card.style.display = 'none';
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-            }
+            const isVisible = filter === 'all' || card.classList.contains(filter);
+            card.hidden = !isVisible;
+            card.style.opacity = isVisible ? '1' : '0';
+            card.style.transform = isVisible ? 'translateY(0)' : 'translateY(20px)';
         });
     }
 
@@ -131,7 +130,7 @@ function setupLanguageSwitching() {
 
     if (!langButtons.length) return;
 
-    const currentLang = localStorage.getItem('language') || 'en';
+    let currentLang = localStorage.getItem('preferredLanguage') || localStorage.getItem('language') || 'en';
     htmlElement.lang = currentLang;
 
     langButtons.forEach(btn => {
@@ -147,8 +146,10 @@ function setupLanguageSwitching() {
 
             langButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
+            localStorage.setItem('preferredLanguage', newLang);
             localStorage.setItem('language', newLang);
             htmlElement.lang = newLang;
+            currentLang = newLang;
             translatePage(newLang);
         });
     });
@@ -241,9 +242,7 @@ function animateElementsOnLoad() {
     elements.forEach((el, index) => {
         setTimeout(() => {
             el.style.opacity = '1';
-            el.style.transform = el.classList.contains('hero-image')
-                ? 'translateY(-50%) scale(1)'
-                : 'translateY(0)';
+            el.style.transform = 'translateY(0)';
         }, index * 100);
     });
 }
@@ -277,15 +276,6 @@ function animateToolTags() {
     logEntries.forEach(entry => observer.observe(entry));
 }
 
-// Call this in your DOMContentLoaded event listener
-document.addEventListener("DOMContentLoaded", function () {
-    // ... your existing code ...
-    animateToolTags();
-});
-
-// update for tools in projects:
-
-// Add this to your existing main.js
 function animateProjectTools() {
     const projectCards = document.querySelectorAll('.project-card');
     
@@ -294,15 +284,8 @@ function animateProjectTools() {
             card.classList.add('active');
         });
         
-        // Optional: Remove active class when mouse leaves
         card.addEventListener('mouseleave', () => {
             card.classList.remove('active');
         });
     });
 }
-
-// Call this in your DOMContentLoaded event listener
-document.addEventListener("DOMContentLoaded", function () {
-    // ... your existing code ...
-    animateProjectTools();
-});
