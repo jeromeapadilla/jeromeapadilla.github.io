@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" href="./favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-    <meta name="./favicon/apple-mobile-web-app-title" content="JP" />
+    <meta name="apple-mobile-web-app-title" content="JP" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
     <meta name="description" content="Jerome Padilla's portfolio showcasing programming and design skills.">
     
@@ -36,7 +36,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-brand">
-            <a href="#hero-subtitle" class="logo">
+            <a href="#home" class="logo">
                 <img src="./35983214943.png" alt="Jerome Logo" class="nav-logo">
                 <span>JEROME PORTFOLIO</span>
             </a>
@@ -51,32 +51,39 @@
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="fr">FR</button>
             </div>
-            <a href="#about" class="nav-link" data-translate="Progress">Progress</a>
+            <a href="#about" class="nav-link" data-translate="About">About</a>
             <a href="#work" class="nav-link" data-translate="Work">Projects</a>
-            <a href="#contact" class="nav-link" data-translate="Contact">Contact</a>
             <a href="#progress" class="nav-link" data-translate="Progress">Progress</a>
-            <a href="./Jerome Resume .pdf" class="nav-link resume-link" target="_blank" data-translate="Resume">Progress</a>
+            <a href="./Jerome Padilla Resume.pdf" class="nav-link resume-link" target="_blank" data-translate="Resume">Progress</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="hero-content">
             <p class="hero-subtitle" data-translate="Programmer | Graphic Designer | Multimedia">Programmer | Graphic Designer | Multimedia</p>
             <h1 class="hero-title" data-translate="Build. Create. Innovate.">Build. Create. Innovate.</h1>
             <p class="hero-description" data-translate="hero-description">
-                <strong>Aspiring Computer Science student</strong> passionate about technology, design, and problem-solving.
-                studied at <strong>Vanier College</strong> with a focus on <strong>web development</strong>, <strong>programming</strong>, and <strong>digital design</strong>.
-              
-                I design and build <strong>responsive</strong>, <strong>user-friendly websites</strong> using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, 
-                while strengthening my programming skills in <strong>Python</strong> and <strong>Java</strong>. 
-                I also create interface designs and visual content using tools like <strong>Photoshop</strong>, <strong>Illustrator</strong>, and <strong>Canva</strong>
-                —believing that strong design plays a key role in creating impactful digital experiences.
-              
-                My goal is to merge clean, purposeful design with <strong>functional</strong>, <strong>efficient code</strong> to build innovative, user-centered solutions.
-                Above all, I have a deep love for <strong>programming</strong> and am always eager to <strong>learn</strong> and <strong>grow</strong>.
+                I build responsive websites and interactive projects that combine clean code with thoughtful visual design.
+                My work brings together <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, and design tools like
+                <strong>Photoshop</strong>, <strong>Illustrator</strong>, and <strong>Canva</strong>.
             </p>              
-
+            <div class="hero-actions">
+                <a href="#work" class="btn" data-translate="View Projects">View Projects</a>
+                <a href="#contact" class="btn btn-secondary" data-translate="Contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.github.com/jeromeapadilla" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jeromeapadilla" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="./images/75079666719.png" alt="Design Work" class="hero-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
+        </div>
         <div class="skills-container">
             <h3 data-translate="Technical Skills">Technical Skills</h3>
             <div class="skills-grid">
@@ -101,20 +108,6 @@
                     <div class="skill" data-skill="Canva" data-level="90"></div>
                 </div>
             </div>
-        </div>
-
-            <a href="#work" class="btn" data-translate="View Projects">View Projects</a>
-            <div class="social-links">
-                <a href="https://www.github.com/jeromeapadilla" class="social-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/jeromeapadilla" class="social-link" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <img src="./images/75079666719.png" alt="Design Work" class="hero-image" onerror="this.src='images/placeholder/placeholder-image.jpg'">
         </div>
     </section>
 
@@ -214,7 +207,7 @@
                 <!-- Project 2 -->
                 <a href="./jerome11_root/home/home.html" class="project-card-link web">
                     <div class="project-card">
-                        <img src="" alt="Vanier College Multimedia Website" class="project-image">
+                        <img src="" alt="Thinkflow Website" class="project-image">
                         <div class="project-info">
                             <h3 class="project-title">Vanier College Multimedia Website</h3>
                             <p class="project-category">Website from my Vanier college projects</p>
@@ -342,7 +335,7 @@
                                     <i class="fab fa-figma"></i> Figma
                                 </span>
                                 <span class="tool-tag adobe">
-                                    <i class="fa-solid fa-pen-fancy"></i></i> Illustrator
+                                    <i class="fa-solid fa-pen-fancy"></i> Illustrator
                                 </span>
                                 <span class="tool-tag photoshop">
                                     <i class="fas fa-image"></i> Photoshop
@@ -429,15 +422,15 @@
                                             <i class="fab fa-html5"></i> HTML5
                                         </span>
                                         <span class="tool-tag ai">
-                                            <i class="fa-solid fa-fire"></i></i> Firebase
+                                            <i class="fa-solid fa-fire"></i> Firebase
                                         </span>
                                     </div>
                                 </div>
                                 
                                 <div class="progress-bar-container">
                                     <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0"></div>
-                                        <span class="progress-text"></span>
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
                                     </div>
                                 </div>
                             </div>
@@ -474,8 +467,8 @@
                                 
                                 <div class="progress-bar-container">
                                     <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 0"></div>
-                                        <span class="progress-text"></span>
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
                                     </div>
                                 </div>
                             </div>
@@ -509,8 +502,8 @@
                                 </div>
                                 
                                 <div class="progress-bar">
-                                    <div class="progress-fill animate-progress" style="width: 0"></div>
-                                    <span class="progress-text">0</span>
+                                    <div class="progress-fill animate-progress" style="width: 0%"></div>
+                                    <span class="progress-text">0%</span>
                                 </div>
                             </div>
                         </div>
@@ -543,8 +536,8 @@
                                 </div>
                                 
                                 <div class="progress-bar">
-                                    <div class="progress-fill animate-progress" style="width: 0"></div>
-                                    <span class="progress-text">0</span>
+                                    <div class="progress-fill animate-progress" style="width: 0%"></div>
+                                    <span class="progress-text">0%</span>
                                 </div>
                             </div>
                         </div>
@@ -682,7 +675,7 @@
         </p>
         <div class="contact-actions">
             <a href="mailto:jeromeapadilla@gmail.com" class="email-link">jeromeapadilla@gmail.com</a>
-            <a href="./Jerome Resume .pdf" class="btn resume-btn" target="_blank" data-translate="View Full Resume">View Full Resume</a>
+            <a href="./Jerome Padilla Resume.pdf" class="btn resume-btn" target="_blank" data-translate="View Full Resume">View Full Resume</a>
         </div>
     </section>
 
@@ -692,8 +685,8 @@
             <a href="#about" class="footer-link" data-translate="About">About</a>
             <a href="#work" class="footer-link" data-translate="Work">Work</a>
             <a href="#contact" class="footer-link" data-translate="Contact">Contact</a>
-            <a href="https://github.com/jeromeapadilla" class="footer-link" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/jeromeapadilla/" class="footer-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/jeromeapadilla" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/jeromeapadilla/" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <p class="copyright">© 2025 Jerome Padilla. All rights reserved.</p>
     </footer>
