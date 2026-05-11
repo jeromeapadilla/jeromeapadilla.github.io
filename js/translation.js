@@ -111,7 +111,7 @@
             '.section-title': ['About Me', 'Projects', 'Let\'s Connect'],
             '.category-title': ['Web Development', 'Programming', 'Graphic Design'],
             '.contact-text': 'contact-text',
-            '.nav-link': ['About', 'Work', 'Contact', 'Progress', 'Resume'],
+            '.nav-link': ['About', 'Work', 'Progress', 'Resume'],
             '.progress-category h3': 'Python Development'
         };
 
