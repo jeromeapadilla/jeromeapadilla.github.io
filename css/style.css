@@ -2026,15 +2026,40 @@ body {
 .hero-subtitle {
     width: auto;
     white-space: normal;
-    animation: none;
     color: var(--accent);
     letter-spacing: 0.08em;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: subtitleReveal 0.7s ease 0.15s forwards;
 }
 
 .hero-subtitle::after {
     width: 72px;
-    animation: none;
     background: var(--accent);
+    transform-origin: left;
+    animation: subtitleUnderline 1.8s ease-in-out 0.85s infinite;
+}
+
+@keyframes subtitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleUnderline {
+    0%, 100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    50% {
+        opacity: 0.45;
+        transform: scaleX(1.55);
+    }
 }
 
 .hero-title {
