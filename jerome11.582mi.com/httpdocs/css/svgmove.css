@@ -28,7 +28,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(/svg/clouds.svg);
+    background: url(../svg/clouds.svg);
     width: 1439px;
     height: 555px;
     animation: foreground 60s -5s linear infinite;
@@ -39,7 +39,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(/svg/mountains.svg);
+    background: url(../svg/mountains.svg);
     width: 1439px;
     height: 555px;
     animation: foreground 20s -5s linear infinite;
@@ -50,7 +50,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(/svg/foreground.svg);
+    background: url(../svg/foreground.svg);
     width: 1439px;
     height: 555px;
     animation: foreground 3s -5s linear infinite;

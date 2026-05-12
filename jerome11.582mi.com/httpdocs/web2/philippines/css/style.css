@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('/web2/philippines/picture/image\ \(1\).jpg');
+    background-image: url('../picture/image\ \(1\).jpg');
     background-size: cover;
     background-repeat: no-repeat;
     color: white;

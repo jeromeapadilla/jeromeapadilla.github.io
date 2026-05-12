@@ -1,11 +1,11 @@
 @font-face {
     font-family: sawfont;
-    src: url(/font/SAOUI-Regular.otf);
+    src: url(../font/SAOUI-Regular.otf);
 }
 
 @font-face {
     font-family: sawbig;
-    src: url(/font/SAOWelcomeTT-Bold.ttf);
+    src: url(../font/SAOWelcomeTT-Bold.ttf);
 }
 
 p {
