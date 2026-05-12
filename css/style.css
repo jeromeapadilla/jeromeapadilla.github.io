@@ -2317,3 +2317,14 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+.project-image-logo {
+    object-fit: contain;
+    object-position: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef6f3 100%);
+}
+
+.project-card:hover .project-image-logo {
+    transform: scale(1.02);
+}
