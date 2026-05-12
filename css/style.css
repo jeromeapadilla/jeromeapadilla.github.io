@@ -2024,7 +2024,9 @@ body {
 }
 
 .hero-subtitle {
-    width: auto;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
     white-space: normal;
     color: var(--accent);
     letter-spacing: 0.08em;
@@ -2034,10 +2036,12 @@ body {
 }
 
 .hero-subtitle::after {
-    width: 72px;
+    width: 100%;
     background: var(--accent);
     transform-origin: left;
-    animation: subtitleUnderline 1.8s ease-in-out 0.85s infinite;
+    animation:
+        subtitleLineReveal 0.85s ease 0.65s both,
+        subtitleUnderline 2.2s ease-in-out 1.5s infinite;
 }
 
 @keyframes subtitleReveal {
@@ -2051,14 +2055,23 @@ body {
     }
 }
 
-@keyframes subtitleUnderline {
-    0%, 100% {
+@keyframes subtitleLineReveal {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
         opacity: 1;
         transform: scaleX(1);
     }
+}
+
+@keyframes subtitleUnderline {
+    0%, 100% {
+        opacity: 1;
+    }
     50% {
         opacity: 0.45;
-        transform: scaleX(1.55);
     }
 }
 
