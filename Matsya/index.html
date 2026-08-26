@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#18392b" />
+  <meta name="description" content="Matsya — Filipino soul, Japanese craft. Matcha taho delivered." />
+  <title>Matsya — Matcha Taho</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" data-go="home" aria-label="Matsya home">
+        <span class="brand-mark"><span>ま</span></span>
+        <span><b>MATSYA</b><small>matcha × taho</small></span>
+      </button>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button class="nav-link active" data-go="home">Home</button>
+        <button class="nav-link" data-go="menu">Menu</button>
+        <button class="nav-link" data-go="track">Track order</button>
+        <button class="nav-link" data-go="story">Our story</button>
+      </nav>
+      <div class="header-actions">
+        <button class="location-pill" id="locationButton"><span class="pin-icon">⌖</span><span><small>Delivering to</small><b id="headerLocation">Toronto, ON</b></span><span>⌄</span></button>
+        <button class="icon-button" id="profileButton" aria-label="Profile">♡</button>
+        <button class="cart-button" id="cartButton" aria-label="Open basket"><span class="bag-icon">⌑</span><span class="cart-label">Basket</span><b id="cartCount">0</b></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page active" id="homePage">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow"><i></i> Filipino soul · Japanese craft</span>
+            <h1>Tradition,<br><em>whisked anew.</em></h1>
+            <p>Silken Filipino taho meets ceremonial-grade Japanese matcha. Warm, nostalgic, and made fresh for you.</p>
+            <div class="hero-actions">
+              <button class="primary-button" data-go="menu">Order your cup <span>→</span></button>
+              <button class="text-button" data-go="story">Discover our story <span>↗</span></button>
+            </div>
+            <div class="hero-notes">
+              <span><b>✣</b><small>Made fresh<br>every morning</small></span>
+              <span><b>茶</b><small>Premium Uji<br>matcha</small></span>
+              <span><b>◡</b><small>Plant-based<br>options</small></span>
+            </div>
+          </div>
+          <div class="hero-visual" role="img" aria-label="Three cups of matcha taho in original, strawberry, and ube flavours">
+            <span class="flavour-tag tag-original"><i></i> OG Matcha</span>
+            <span class="flavour-tag tag-strawberry"><i></i> Strawberry</span>
+            <span class="flavour-tag tag-ube"><i></i> Ube</span>
+            <div class="hero-badge"><span>手作り</span><b>HAND<br>CRAFTED</b></div>
+          </div>
+        </div>
+
+        <section class="section-block favourites-section">
+          <div class="section-heading"><div><span class="kicker">Matsya favourites</span><h2>A little joy in every cup.</h2></div><button class="text-button" data-go="menu">View full menu <span>→</span></button></div>
+          <div class="product-grid" id="featuredGrid"></div>
+        </section>
+
+        <section class="ritual-strip">
+          <div class="ritual-art"><span class="sun"></span><span class="bowl">茶</span></div>
+          <div><span class="kicker light">The Matsya ritual</span><h2>Two traditions.<br>One beautiful ritual.</h2><p>We make our taho the Filipino way—fresh silken tofu, chewy sago, and deep amber arnibal—then finish each cup with carefully whisked Japanese matcha.</p><button class="cream-button" data-go="story">Read our story</button></div>
+          <div class="steps"><span><b>01</b><i></i><strong>Silken taho</strong><small>Made fresh in small batches</small></span><span><b>02</b><i></i><strong>House arnibal</strong><small>Slow-cooked brown sugar syrup</small></span><span><b>03</b><i></i><strong>Whisked matcha</strong><small>Premium stone-ground Uji tea</small></span></div>
+        </section>
+      </section>
+
+      <section class="page menu-page" id="menuPage">
+        <div class="page-banner"><span class="eyebrow"><i></i> Made to order</span><h1>Find your <em>favourite.</em></h1><p>Every cup starts with fresh silken taho, sago pearls, and house-made arnibal.</p></div>
+        <div class="menu-toolbar"><div class="category-tabs" id="categoryTabs"></div><button class="filter-button" id="dietaryFilter">♧ <span>Plant-based only</span></button></div>
+        <div class="menu-content"><aside><span>THE MENU</span><h3>Matcha taho</h3><p>Choose your flavour, size, sweetness, and toppings. Make it yours.</p><div class="aside-card"><b>Not sure what to pick?</b><p>Start with our creamy bestseller.</p><button data-quick-add="strawberry">Try Strawberry →</button></div></aside><div class="product-grid menu-grid" id="menuGrid"></div></div>
+      </section>
+
+      <section class="page track-page" id="trackPage">
+        <div class="page-banner compact"><span class="eyebrow"><i></i> Live updates</span><h1>Your Matsya, <em>on its way.</em></h1><p>Enter the order number from your confirmation.</p></div>
+        <div class="track-search"><input id="trackInput" placeholder="e.g. MT-1084" /><button class="primary-button" id="trackButton">Track order →</button></div>
+        <div id="trackingResult" class="tracking-result empty-state"><span>⌖</span><h3>No order selected</h3><p>Your latest order will appear here after checkout.</p></div>
+      </section>
+
+      <section class="page story-page" id="storyPage">
+        <div class="story-hero"><div><span class="eyebrow light"><i></i> Our story</span><h1>Born from two <em>beautiful rituals.</em></h1><p>Matsya is our love letter to the Filipino merienda and the Japanese way of tea.</p></div></div>
+        <div class="story-body"><div><span class="kicker">Why Matsya?</span><h2>A name that brings<br>two worlds together.</h2></div><div><p>“Matsya” carries the familiar sound of matcha while feeling at home in a Filipino conversation. We wanted a name for the place where Japan’s quiet tea ritual meets the warmth and community of the Filipino taho vendor.</p><p>Our cups layer fresh silken tofu, chewy sago, and slow-cooked arnibal with stone-ground Uji matcha and flavours we grew up loving—from ube to mango and calamansi.</p><div class="signature">Para sa bawat merienda. <small>For every afternoon pause.</small></div></div></div>
+      </section>
+
+      <section class="page admin-page" id="adminPage">
+        <div class="admin-shell">
+          <aside class="admin-sidebar"><div class="brand admin-brand"><span class="brand-mark"><span>ま</span></span><span><b>MATSYA</b><small>operations</small></span></div><nav><button class="active" data-admin-tab="dashboard">⌂ <span>Overview</span></button><button data-admin-tab="orders">▤ <span>Orders</span><b id="newOrderBadge">0</b></button><button data-admin-tab="menuadmin">◉ <span>Menu</span></button><button data-admin-tab="delivery">⌖ <span>Delivery</span></button></nav><button class="store-toggle" id="storeToggle"><i></i><span><small>Store status</small><b>Open for orders</b></span></button><button class="exit-admin" data-go="home">← Customer app</button></aside>
+          <div class="admin-main"><header><div><span class="kicker">Tuesday, August 25</span><h1>Magandang araw! <span>👋</span></h1></div><div><button class="icon-button">⌕</button><button class="admin-avatar">JM</button></div></header><div id="adminContent"></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="brand"><span class="brand-mark"><span>ま</span></span><span><b>MATSYA</b><small>matcha × taho</small></span></div><p>Filipino soul, Japanese craft.<br>Made with care in Toronto.</p><div><button data-go="menu">Menu</button><button data-go="track">Track order</button><button data-go="story">Our story</button><button data-go="admin">Shop admin</button></div><small>© 2026 Matsya. All cups made with love.</small></footer>
+  </div>
+
+  <nav class="mobile-nav"><button class="active" data-go="home"><b>⌂</b><span>Home</span></button><button data-go="menu"><b>◉</b><span>Menu</span></button><button data-go="track"><b>⌖</b><span>Track</span></button><button id="mobileCart"><b>⌑</b><span>Basket</span><i id="mobileCartCount">0</i></button></nav>
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer cart-drawer" id="cartDrawer" aria-label="Your basket"><div class="drawer-head"><div><span class="kicker">Your order</span><h2>Basket <small id="drawerCount">0 items</small></h2></div><button class="close-button" data-close>×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-summary" id="cartSummary"></div></aside>
+  <div class="modal product-modal" id="productModal"><button class="close-button" data-close>×</button><div id="productModalContent"></div></div>
+  <div class="modal checkout-modal" id="checkoutModal"><button class="close-button" data-close>×</button><div id="checkoutContent"></div></div>
+  <div class="toast-stack" id="toastStack"></div>
+  <script src="app.js"></script>
+</body>
+</html>
